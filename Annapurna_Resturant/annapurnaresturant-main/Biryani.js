@@ -51,7 +51,7 @@ export default function BiryaniScreen({ navigation }) {
 
           <View style={styles.iconRow}>
             {/* WISHLIST */}
-            <TouchableOpacity style={styles.iconBtn} onPress={() => toggleWishlist(item)}>
+            <TouchableOpacity style={styles.iconBtn} onPress={() => toggleWishlist(item.id)}>
               <Ionicons
                 name={wishlisted ? "heart" : "heart-outline"}
                 size={17}

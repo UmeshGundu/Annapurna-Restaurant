@@ -9,4 +9,5 @@ public class UpdateProfileRequest {
     private String dob;
     private String gender;
     private String phone;
+    
 }

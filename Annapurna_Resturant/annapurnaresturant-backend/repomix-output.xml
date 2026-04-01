@@ -1,0 +1,3370 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitattributes
+.gitignore
+.mvn/wrapper/maven-wrapper.properties
+mvnw
+mvnw.cmd
+pom.xml
+src/main/java/com/annapurna/in/config/DataSeeder.java
+src/main/java/com/annapurna/in/config/SecurityConfig.java
+src/main/java/com/annapurna/in/config/TwilioConfig.java
+src/main/java/com/annapurna/in/controller/AddressController.java
+src/main/java/com/annapurna/in/controller/AuthController.java
+src/main/java/com/annapurna/in/controller/CartController.java
+src/main/java/com/annapurna/in/controller/InfoController.java
+src/main/java/com/annapurna/in/controller/MenuController.java
+src/main/java/com/annapurna/in/controller/OrderController.java
+src/main/java/com/annapurna/in/controller/PaymentController.java
+src/main/java/com/annapurna/in/controller/UserController.java
+src/main/java/com/annapurna/in/controller/WishlistController.java
+src/main/java/com/annapurna/in/dto/AddressDTO.java
+src/main/java/com/annapurna/in/dto/AddressRequest.java
+src/main/java/com/annapurna/in/dto/ApiResponse.java
+src/main/java/com/annapurna/in/dto/AuthRequest.java
+src/main/java/com/annapurna/in/dto/AuthResponse.java
+src/main/java/com/annapurna/in/dto/CartItemDTO.java
+src/main/java/com/annapurna/in/dto/CartItemRequest.java
+src/main/java/com/annapurna/in/dto/CartSummaryDTO.java
+src/main/java/com/annapurna/in/dto/ContactDTO.java
+src/main/java/com/annapurna/in/dto/FaqDTO.java
+src/main/java/com/annapurna/in/dto/MenuItemDTO.java
+src/main/java/com/annapurna/in/dto/OrderDTO.java
+src/main/java/com/annapurna/in/dto/OrderItemDTO.java
+src/main/java/com/annapurna/in/dto/OtpRequest.java
+src/main/java/com/annapurna/in/dto/OtpVerifyRequest.java
+src/main/java/com/annapurna/in/dto/PaymentRequest.java
+src/main/java/com/annapurna/in/dto/PaymentResponse.java
+src/main/java/com/annapurna/in/dto/PlaceOrderRequest.java
+src/main/java/com/annapurna/in/dto/RateAppRequest.java
+src/main/java/com/annapurna/in/dto/RegisterRequest.java
+src/main/java/com/annapurna/in/dto/UpdateProfileRequest.java
+src/main/java/com/annapurna/in/dto/UserProfileDTO.java
+src/main/java/com/annapurna/in/dto/WishlistItemDTO.java
+src/main/java/com/annapurna/in/entity/Address.java
+src/main/java/com/annapurna/in/entity/CartItem.java
+src/main/java/com/annapurna/in/entity/MenuItem.java
+src/main/java/com/annapurna/in/entity/Order.java
+src/main/java/com/annapurna/in/entity/OrderItem.java
+src/main/java/com/annapurna/in/entity/OtpVerification.java
+src/main/java/com/annapurna/in/entity/User.java
+src/main/java/com/annapurna/in/entity/WishlistItem.java
+src/main/java/com/annapurna/in/exception/GlobalExceptionHandler.java
+src/main/java/com/annapurna/in/InApplication.java
+src/main/java/com/annapurna/in/repository/AddressRepository.java
+src/main/java/com/annapurna/in/repository/CartItemRepository.java
+src/main/java/com/annapurna/in/repository/MenuItemRepository.java
+src/main/java/com/annapurna/in/repository/OrderRepository.java
+src/main/java/com/annapurna/in/repository/OtpVerificationRepository.java
+src/main/java/com/annapurna/in/repository/UserRepository.java
+src/main/java/com/annapurna/in/repository/WishlistItemRepository.java
+src/main/java/com/annapurna/in/security/JwtFilter.java
+src/main/java/com/annapurna/in/security/JwtUtil.java
+src/main/java/com/annapurna/in/service/AddressService.java
+src/main/java/com/annapurna/in/service/AuthService.java
+src/main/java/com/annapurna/in/service/CartService.java
+src/main/java/com/annapurna/in/service/CustomUserDetailsService.java
+src/main/java/com/annapurna/in/service/InfoService.java
+src/main/java/com/annapurna/in/service/MenuService.java
+src/main/java/com/annapurna/in/service/OrderService.java
+src/main/java/com/annapurna/in/service/OtpService.java
+src/main/java/com/annapurna/in/service/PaymentService.java
+src/main/java/com/annapurna/in/service/UserService.java
+src/main/java/com/annapurna/in/service/WishlistService.java
+src/main/resources/application.properties
+src/test/java/com/annapurna/in/InApplicationTests.java
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".gitattributes">
+/mvnw text eol=lf
+*.cmd text eol=crlf
+</file>
+
+<file path=".gitignore">
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+</file>
+
+<file path=".mvn/wrapper/maven-wrapper.properties">
+wrapperVersion=3.3.4
+distributionType=only-script
+distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.14/apache-maven-3.9.14-bin.zip
+</file>
+
+<file path="mvnw">
+#!/bin/sh
+# ----------------------------------------------------------------------------
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
+# Apache Maven Wrapper startup batch script, version 3.3.4
+#
+# Optional ENV vars
+# -----------------
+#   JAVA_HOME - location of a JDK home dir, required when download maven via java source
+#   MVNW_REPOURL - repo url base for downloading maven distribution
+#   MVNW_USERNAME/MVNW_PASSWORD - user and password for downloading maven
+#   MVNW_VERBOSE - true: enable verbose log; debug: trace the mvnw script; others: silence the output
+# ----------------------------------------------------------------------------
+
+set -euf
+[ "${MVNW_VERBOSE-}" != debug ] || set -x
+
+# OS specific support.
+native_path() { printf %s\\n "$1"; }
+case "$(uname)" in
+CYGWIN* | MINGW*)
+  [ -z "${JAVA_HOME-}" ] || JAVA_HOME="$(cygpath --unix "$JAVA_HOME")"
+  native_path() { cygpath --path --windows "$1"; }
+  ;;
+esac
+
+# set JAVACMD and JAVACCMD
+set_java_home() {
+  # For Cygwin and MinGW, ensure paths are in Unix format before anything is touched
+  if [ -n "${JAVA_HOME-}" ]; then
+    if [ -x "$JAVA_HOME/jre/sh/java" ]; then
+      # IBM's JDK on AIX uses strange locations for the executables
+      JAVACMD="$JAVA_HOME/jre/sh/java"
+      JAVACCMD="$JAVA_HOME/jre/sh/javac"
+    else
+      JAVACMD="$JAVA_HOME/bin/java"
+      JAVACCMD="$JAVA_HOME/bin/javac"
+
+      if [ ! -x "$JAVACMD" ] || [ ! -x "$JAVACCMD" ]; then
+        echo "The JAVA_HOME environment variable is not defined correctly, so mvnw cannot run." >&2
+        echo "JAVA_HOME is set to \"$JAVA_HOME\", but \"\$JAVA_HOME/bin/java\" or \"\$JAVA_HOME/bin/javac\" does not exist." >&2
+        return 1
+      fi
+    fi
+  else
+    JAVACMD="$(
+      'set' +e
+      'unset' -f command 2>/dev/null
+      'command' -v java
+    )" || :
+    JAVACCMD="$(
+      'set' +e
+      'unset' -f command 2>/dev/null
+      'command' -v javac
+    )" || :
+
+    if [ ! -x "${JAVACMD-}" ] || [ ! -x "${JAVACCMD-}" ]; then
+      echo "The java/javac command does not exist in PATH nor is JAVA_HOME set, so mvnw cannot run." >&2
+      return 1
+    fi
+  fi
+}
+
+# hash string like Java String::hashCode
+hash_string() {
+  str="${1:-}" h=0
+  while [ -n "$str" ]; do
+    char="${str%"${str#?}"}"
+    h=$(((h * 31 + $(LC_CTYPE=C printf %d "'$char")) % 4294967296))
+    str="${str#?}"
+  done
+  printf %x\\n $h
+}
+
+verbose() { :; }
+[ "${MVNW_VERBOSE-}" != true ] || verbose() { printf %s\\n "${1-}"; }
+
+die() {
+  printf %s\\n "$1" >&2
+  exit 1
+}
+
+trim() {
+  # MWRAPPER-139:
+  #   Trims trailing and leading whitespace, carriage returns, tabs, and linefeeds.
+  #   Needed for removing poorly interpreted newline sequences when running in more
+  #   exotic environments such as mingw bash on Windows.
+  printf "%s" "${1}" | tr -d '[:space:]'
+}
+
+scriptDir="$(dirname "$0")"
+scriptName="$(basename "$0")"
+
+# parse distributionUrl and optional distributionSha256Sum, requires .mvn/wrapper/maven-wrapper.properties
+while IFS="=" read -r key value; do
+  case "${key-}" in
+  distributionUrl) distributionUrl=$(trim "${value-}") ;;
+  distributionSha256Sum) distributionSha256Sum=$(trim "${value-}") ;;
+  esac
+done <"$scriptDir/.mvn/wrapper/maven-wrapper.properties"
+[ -n "${distributionUrl-}" ] || die "cannot read distributionUrl property in $scriptDir/.mvn/wrapper/maven-wrapper.properties"
+
+case "${distributionUrl##*/}" in
+maven-mvnd-*bin.*)
+  MVN_CMD=mvnd.sh _MVNW_REPO_PATTERN=/maven/mvnd/
+  case "${PROCESSOR_ARCHITECTURE-}${PROCESSOR_ARCHITEW6432-}:$(uname -a)" in
+  *AMD64:CYGWIN* | *AMD64:MINGW*) distributionPlatform=windows-amd64 ;;
+  :Darwin*x86_64) distributionPlatform=darwin-amd64 ;;
+  :Darwin*arm64) distributionPlatform=darwin-aarch64 ;;
+  :Linux*x86_64*) distributionPlatform=linux-amd64 ;;
+  *)
+    echo "Cannot detect native platform for mvnd on $(uname)-$(uname -m), use pure java version" >&2
+    distributionPlatform=linux-amd64
+    ;;
+  esac
+  distributionUrl="${distributionUrl%-bin.*}-$distributionPlatform.zip"
+  ;;
+maven-mvnd-*) MVN_CMD=mvnd.sh _MVNW_REPO_PATTERN=/maven/mvnd/ ;;
+*) MVN_CMD="mvn${scriptName#mvnw}" _MVNW_REPO_PATTERN=/org/apache/maven/ ;;
+esac
+
+# apply MVNW_REPOURL and calculate MAVEN_HOME
+# maven home pattern: ~/.m2/wrapper/dists/{apache-maven-<version>,maven-mvnd-<version>-<platform>}/<hash>
+[ -z "${MVNW_REPOURL-}" ] || distributionUrl="$MVNW_REPOURL$_MVNW_REPO_PATTERN${distributionUrl#*"$_MVNW_REPO_PATTERN"}"
+distributionUrlName="${distributionUrl##*/}"
+distributionUrlNameMain="${distributionUrlName%.*}"
+distributionUrlNameMain="${distributionUrlNameMain%-bin}"
+MAVEN_USER_HOME="${MAVEN_USER_HOME:-${HOME}/.m2}"
+MAVEN_HOME="${MAVEN_USER_HOME}/wrapper/dists/${distributionUrlNameMain-}/$(hash_string "$distributionUrl")"
+
+exec_maven() {
+  unset MVNW_VERBOSE MVNW_USERNAME MVNW_PASSWORD MVNW_REPOURL || :
+  exec "$MAVEN_HOME/bin/$MVN_CMD" "$@" || die "cannot exec $MAVEN_HOME/bin/$MVN_CMD"
+}
+
+if [ -d "$MAVEN_HOME" ]; then
+  verbose "found existing MAVEN_HOME at $MAVEN_HOME"
+  exec_maven "$@"
+fi
+
+case "${distributionUrl-}" in
+*?-bin.zip | *?maven-mvnd-?*-?*.zip) ;;
+*) die "distributionUrl is not valid, must match *-bin.zip or maven-mvnd-*.zip, but found '${distributionUrl-}'" ;;
+esac
+
+# prepare tmp dir
+if TMP_DOWNLOAD_DIR="$(mktemp -d)" && [ -d "$TMP_DOWNLOAD_DIR" ]; then
+  clean() { rm -rf -- "$TMP_DOWNLOAD_DIR"; }
+  trap clean HUP INT TERM EXIT
+else
+  die "cannot create temp dir"
+fi
+
+mkdir -p -- "${MAVEN_HOME%/*}"
+
+# Download and Install Apache Maven
+verbose "Couldn't find MAVEN_HOME, downloading and installing it ..."
+verbose "Downloading from: $distributionUrl"
+verbose "Downloading to: $TMP_DOWNLOAD_DIR/$distributionUrlName"
+
+# select .zip or .tar.gz
+if ! command -v unzip >/dev/null; then
+  distributionUrl="${distributionUrl%.zip}.tar.gz"
+  distributionUrlName="${distributionUrl##*/}"
+fi
+
+# verbose opt
+__MVNW_QUIET_WGET=--quiet __MVNW_QUIET_CURL=--silent __MVNW_QUIET_UNZIP=-q __MVNW_QUIET_TAR=''
+[ "${MVNW_VERBOSE-}" != true ] || __MVNW_QUIET_WGET='' __MVNW_QUIET_CURL='' __MVNW_QUIET_UNZIP='' __MVNW_QUIET_TAR=v
+
+# normalize http auth
+case "${MVNW_PASSWORD:+has-password}" in
+'') MVNW_USERNAME='' MVNW_PASSWORD='' ;;
+has-password) [ -n "${MVNW_USERNAME-}" ] || MVNW_USERNAME='' MVNW_PASSWORD='' ;;
+esac
+
+if [ -z "${MVNW_USERNAME-}" ] && command -v wget >/dev/null; then
+  verbose "Found wget ... using wget"
+  wget ${__MVNW_QUIET_WGET:+"$__MVNW_QUIET_WGET"} "$distributionUrl" -O "$TMP_DOWNLOAD_DIR/$distributionUrlName" || die "wget: Failed to fetch $distributionUrl"
+elif [ -z "${MVNW_USERNAME-}" ] && command -v curl >/dev/null; then
+  verbose "Found curl ... using curl"
+  curl ${__MVNW_QUIET_CURL:+"$__MVNW_QUIET_CURL"} -f -L -o "$TMP_DOWNLOAD_DIR/$distributionUrlName" "$distributionUrl" || die "curl: Failed to fetch $distributionUrl"
+elif set_java_home; then
+  verbose "Falling back to use Java to download"
+  javaSource="$TMP_DOWNLOAD_DIR/Downloader.java"
+  targetZip="$TMP_DOWNLOAD_DIR/$distributionUrlName"
+  cat >"$javaSource" <<-END
+	public class Downloader extends java.net.Authenticator
+	{
+	  protected java.net.PasswordAuthentication getPasswordAuthentication()
+	  {
+	    return new java.net.PasswordAuthentication( System.getenv( "MVNW_USERNAME" ), System.getenv( "MVNW_PASSWORD" ).toCharArray() );
+	  }
+	  public static void main( String[] args ) throws Exception
+	  {
+	    setDefault( new Downloader() );
+	    java.nio.file.Files.copy( java.net.URI.create( args[0] ).toURL().openStream(), java.nio.file.Paths.get( args[1] ).toAbsolutePath().normalize() );
+	  }
+	}
+	END
+  # For Cygwin/MinGW, switch paths to Windows format before running javac and java
+  verbose " - Compiling Downloader.java ..."
+  "$(native_path "$JAVACCMD")" "$(native_path "$javaSource")" || die "Failed to compile Downloader.java"
+  verbose " - Running Downloader.java ..."
+  "$(native_path "$JAVACMD")" -cp "$(native_path "$TMP_DOWNLOAD_DIR")" Downloader "$distributionUrl" "$(native_path "$targetZip")"
+fi
+
+# If specified, validate the SHA-256 sum of the Maven distribution zip file
+if [ -n "${distributionSha256Sum-}" ]; then
+  distributionSha256Result=false
+  if [ "$MVN_CMD" = mvnd.sh ]; then
+    echo "Checksum validation is not supported for maven-mvnd." >&2
+    echo "Please disable validation by removing 'distributionSha256Sum' from your maven-wrapper.properties." >&2
+    exit 1
+  elif command -v sha256sum >/dev/null; then
+    if echo "$distributionSha256Sum  $TMP_DOWNLOAD_DIR/$distributionUrlName" | sha256sum -c - >/dev/null 2>&1; then
+      distributionSha256Result=true
+    fi
+  elif command -v shasum >/dev/null; then
+    if echo "$distributionSha256Sum  $TMP_DOWNLOAD_DIR/$distributionUrlName" | shasum -a 256 -c >/dev/null 2>&1; then
+      distributionSha256Result=true
+    fi
+  else
+    echo "Checksum validation was requested but neither 'sha256sum' or 'shasum' are available." >&2
+    echo "Please install either command, or disable validation by removing 'distributionSha256Sum' from your maven-wrapper.properties." >&2
+    exit 1
+  fi
+  if [ $distributionSha256Result = false ]; then
+    echo "Error: Failed to validate Maven distribution SHA-256, your Maven distribution might be compromised." >&2
+    echo "If you updated your Maven version, you need to update the specified distributionSha256Sum property." >&2
+    exit 1
+  fi
+fi
+
+# unzip and move
+if command -v unzip >/dev/null; then
+  unzip ${__MVNW_QUIET_UNZIP:+"$__MVNW_QUIET_UNZIP"} "$TMP_DOWNLOAD_DIR/$distributionUrlName" -d "$TMP_DOWNLOAD_DIR" || die "failed to unzip"
+else
+  tar xzf${__MVNW_QUIET_TAR:+"$__MVNW_QUIET_TAR"} "$TMP_DOWNLOAD_DIR/$distributionUrlName" -C "$TMP_DOWNLOAD_DIR" || die "failed to untar"
+fi
+
+# Find the actual extracted directory name (handles snapshots where filename != directory name)
+actualDistributionDir=""
+
+# First try the expected directory name (for regular distributions)
+if [ -d "$TMP_DOWNLOAD_DIR/$distributionUrlNameMain" ]; then
+  if [ -f "$TMP_DOWNLOAD_DIR/$distributionUrlNameMain/bin/$MVN_CMD" ]; then
+    actualDistributionDir="$distributionUrlNameMain"
+  fi
+fi
+
+# If not found, search for any directory with the Maven executable (for snapshots)
+if [ -z "$actualDistributionDir" ]; then
+  # enable globbing to iterate over items
+  set +f
+  for dir in "$TMP_DOWNLOAD_DIR"/*; do
+    if [ -d "$dir" ]; then
+      if [ -f "$dir/bin/$MVN_CMD" ]; then
+        actualDistributionDir="$(basename "$dir")"
+        break
+      fi
+    fi
+  done
+  set -f
+fi
+
+if [ -z "$actualDistributionDir" ]; then
+  verbose "Contents of $TMP_DOWNLOAD_DIR:"
+  verbose "$(ls -la "$TMP_DOWNLOAD_DIR")"
+  die "Could not find Maven distribution directory in extracted archive"
+fi
+
+verbose "Found extracted Maven distribution directory: $actualDistributionDir"
+printf %s\\n "$distributionUrl" >"$TMP_DOWNLOAD_DIR/$actualDistributionDir/mvnw.url"
+mv -- "$TMP_DOWNLOAD_DIR/$actualDistributionDir" "$MAVEN_HOME" || [ -d "$MAVEN_HOME" ] || die "fail to move MAVEN_HOME"
+
+clean || :
+exec_maven "$@"
+</file>
+
+<file path="mvnw.cmd">
+<# : batch portion
+@REM ----------------------------------------------------------------------------
+@REM Licensed to the Apache Software Foundation (ASF) under one
+@REM or more contributor license agreements.  See the NOTICE file
+@REM distributed with this work for additional information
+@REM regarding copyright ownership.  The ASF licenses this file
+@REM to you under the Apache License, Version 2.0 (the
+@REM "License"); you may not use this file except in compliance
+@REM with the License.  You may obtain a copy of the License at
+@REM
+@REM    http://www.apache.org/licenses/LICENSE-2.0
+@REM
+@REM Unless required by applicable law or agreed to in writing,
+@REM software distributed under the License is distributed on an
+@REM "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+@REM KIND, either express or implied.  See the License for the
+@REM specific language governing permissions and limitations
+@REM under the License.
+@REM ----------------------------------------------------------------------------
+
+@REM ----------------------------------------------------------------------------
+@REM Apache Maven Wrapper startup batch script, version 3.3.4
+@REM
+@REM Optional ENV vars
+@REM   MVNW_REPOURL - repo url base for downloading maven distribution
+@REM   MVNW_USERNAME/MVNW_PASSWORD - user and password for downloading maven
+@REM   MVNW_VERBOSE - true: enable verbose log; others: silence the output
+@REM ----------------------------------------------------------------------------
+
+@IF "%__MVNW_ARG0_NAME__%"=="" (SET __MVNW_ARG0_NAME__=%~nx0)
+@SET __MVNW_CMD__=
+@SET __MVNW_ERROR__=
+@SET __MVNW_PSMODULEP_SAVE=%PSModulePath%
+@SET PSModulePath=
+@FOR /F "usebackq tokens=1* delims==" %%A IN (`powershell -noprofile "& {$scriptDir='%~dp0'; $script='%__MVNW_ARG0_NAME__%'; icm -ScriptBlock ([Scriptblock]::Create((Get-Content -Raw '%~f0'))) -NoNewScope}"`) DO @(
+  IF "%%A"=="MVN_CMD" (set __MVNW_CMD__=%%B) ELSE IF "%%B"=="" (echo %%A) ELSE (echo %%A=%%B)
+)
+@SET PSModulePath=%__MVNW_PSMODULEP_SAVE%
+@SET __MVNW_PSMODULEP_SAVE=
+@SET __MVNW_ARG0_NAME__=
+@SET MVNW_USERNAME=
+@SET MVNW_PASSWORD=
+@IF NOT "%__MVNW_CMD__%"=="" ("%__MVNW_CMD__%" %*)
+@echo Cannot start maven from wrapper >&2 && exit /b 1
+@GOTO :EOF
+: end batch / begin powershell #>
+
+$ErrorActionPreference = "Stop"
+if ($env:MVNW_VERBOSE -eq "true") {
+  $VerbosePreference = "Continue"
+}
+
+# calculate distributionUrl, requires .mvn/wrapper/maven-wrapper.properties
+$distributionUrl = (Get-Content -Raw "$scriptDir/.mvn/wrapper/maven-wrapper.properties" | ConvertFrom-StringData).distributionUrl
+if (!$distributionUrl) {
+  Write-Error "cannot read distributionUrl property in $scriptDir/.mvn/wrapper/maven-wrapper.properties"
+}
+
+switch -wildcard -casesensitive ( $($distributionUrl -replace '^.*/','') ) {
+  "maven-mvnd-*" {
+    $USE_MVND = $true
+    $distributionUrl = $distributionUrl -replace '-bin\.[^.]*$',"-windows-amd64.zip"
+    $MVN_CMD = "mvnd.cmd"
+    break
+  }
+  default {
+    $USE_MVND = $false
+    $MVN_CMD = $script -replace '^mvnw','mvn'
+    break
+  }
+}
+
+# apply MVNW_REPOURL and calculate MAVEN_HOME
+# maven home pattern: ~/.m2/wrapper/dists/{apache-maven-<version>,maven-mvnd-<version>-<platform>}/<hash>
+if ($env:MVNW_REPOURL) {
+  $MVNW_REPO_PATTERN = if ($USE_MVND -eq $False) { "/org/apache/maven/" } else { "/maven/mvnd/" }
+  $distributionUrl = "$env:MVNW_REPOURL$MVNW_REPO_PATTERN$($distributionUrl -replace "^.*$MVNW_REPO_PATTERN",'')"
+}
+$distributionUrlName = $distributionUrl -replace '^.*/',''
+$distributionUrlNameMain = $distributionUrlName -replace '\.[^.]*$','' -replace '-bin$',''
+
+$MAVEN_M2_PATH = "$HOME/.m2"
+if ($env:MAVEN_USER_HOME) {
+  $MAVEN_M2_PATH = "$env:MAVEN_USER_HOME"
+}
+
+if (-not (Test-Path -Path $MAVEN_M2_PATH)) {
+    New-Item -Path $MAVEN_M2_PATH -ItemType Directory | Out-Null
+}
+
+$MAVEN_WRAPPER_DISTS = $null
+if ((Get-Item $MAVEN_M2_PATH).Target[0] -eq $null) {
+  $MAVEN_WRAPPER_DISTS = "$MAVEN_M2_PATH/wrapper/dists"
+} else {
+  $MAVEN_WRAPPER_DISTS = (Get-Item $MAVEN_M2_PATH).Target[0] + "/wrapper/dists"
+}
+
+$MAVEN_HOME_PARENT = "$MAVEN_WRAPPER_DISTS/$distributionUrlNameMain"
+$MAVEN_HOME_NAME = ([System.Security.Cryptography.SHA256]::Create().ComputeHash([byte[]][char[]]$distributionUrl) | ForEach-Object {$_.ToString("x2")}) -join ''
+$MAVEN_HOME = "$MAVEN_HOME_PARENT/$MAVEN_HOME_NAME"
+
+if (Test-Path -Path "$MAVEN_HOME" -PathType Container) {
+  Write-Verbose "found existing MAVEN_HOME at $MAVEN_HOME"
+  Write-Output "MVN_CMD=$MAVEN_HOME/bin/$MVN_CMD"
+  exit $?
+}
+
+if (! $distributionUrlNameMain -or ($distributionUrlName -eq $distributionUrlNameMain)) {
+  Write-Error "distributionUrl is not valid, must end with *-bin.zip, but found $distributionUrl"
+}
+
+# prepare tmp dir
+$TMP_DOWNLOAD_DIR_HOLDER = New-TemporaryFile
+$TMP_DOWNLOAD_DIR = New-Item -Itemtype Directory -Path "$TMP_DOWNLOAD_DIR_HOLDER.dir"
+$TMP_DOWNLOAD_DIR_HOLDER.Delete() | Out-Null
+trap {
+  if ($TMP_DOWNLOAD_DIR.Exists) {
+    try { Remove-Item $TMP_DOWNLOAD_DIR -Recurse -Force | Out-Null }
+    catch { Write-Warning "Cannot remove $TMP_DOWNLOAD_DIR" }
+  }
+}
+
+New-Item -Itemtype Directory -Path "$MAVEN_HOME_PARENT" -Force | Out-Null
+
+# Download and Install Apache Maven
+Write-Verbose "Couldn't find MAVEN_HOME, downloading and installing it ..."
+Write-Verbose "Downloading from: $distributionUrl"
+Write-Verbose "Downloading to: $TMP_DOWNLOAD_DIR/$distributionUrlName"
+
+$webclient = New-Object System.Net.WebClient
+if ($env:MVNW_USERNAME -and $env:MVNW_PASSWORD) {
+  $webclient.Credentials = New-Object System.Net.NetworkCredential($env:MVNW_USERNAME, $env:MVNW_PASSWORD)
+}
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$webclient.DownloadFile($distributionUrl, "$TMP_DOWNLOAD_DIR/$distributionUrlName") | Out-Null
+
+# If specified, validate the SHA-256 sum of the Maven distribution zip file
+$distributionSha256Sum = (Get-Content -Raw "$scriptDir/.mvn/wrapper/maven-wrapper.properties" | ConvertFrom-StringData).distributionSha256Sum
+if ($distributionSha256Sum) {
+  if ($USE_MVND) {
+    Write-Error "Checksum validation is not supported for maven-mvnd. `nPlease disable validation by removing 'distributionSha256Sum' from your maven-wrapper.properties."
+  }
+  Import-Module $PSHOME\Modules\Microsoft.PowerShell.Utility -Function Get-FileHash
+  if ((Get-FileHash "$TMP_DOWNLOAD_DIR/$distributionUrlName" -Algorithm SHA256).Hash.ToLower() -ne $distributionSha256Sum) {
+    Write-Error "Error: Failed to validate Maven distribution SHA-256, your Maven distribution might be compromised. If you updated your Maven version, you need to update the specified distributionSha256Sum property."
+  }
+}
+
+# unzip and move
+Expand-Archive "$TMP_DOWNLOAD_DIR/$distributionUrlName" -DestinationPath "$TMP_DOWNLOAD_DIR" | Out-Null
+
+# Find the actual extracted directory name (handles snapshots where filename != directory name)
+$actualDistributionDir = ""
+
+# First try the expected directory name (for regular distributions)
+$expectedPath = Join-Path "$TMP_DOWNLOAD_DIR" "$distributionUrlNameMain"
+$expectedMvnPath = Join-Path "$expectedPath" "bin/$MVN_CMD"
+if ((Test-Path -Path $expectedPath -PathType Container) -and (Test-Path -Path $expectedMvnPath -PathType Leaf)) {
+  $actualDistributionDir = $distributionUrlNameMain
+}
+
+# If not found, search for any directory with the Maven executable (for snapshots)
+if (!$actualDistributionDir) {
+  Get-ChildItem -Path "$TMP_DOWNLOAD_DIR" -Directory | ForEach-Object {
+    $testPath = Join-Path $_.FullName "bin/$MVN_CMD"
+    if (Test-Path -Path $testPath -PathType Leaf) {
+      $actualDistributionDir = $_.Name
+    }
+  }
+}
+
+if (!$actualDistributionDir) {
+  Write-Error "Could not find Maven distribution directory in extracted archive"
+}
+
+Write-Verbose "Found extracted Maven distribution directory: $actualDistributionDir"
+Rename-Item -Path "$TMP_DOWNLOAD_DIR/$actualDistributionDir" -NewName $MAVEN_HOME_NAME | Out-Null
+try {
+  Move-Item -Path "$TMP_DOWNLOAD_DIR/$MAVEN_HOME_NAME" -Destination $MAVEN_HOME_PARENT | Out-Null
+} catch {
+  if (! (Test-Path -Path "$MAVEN_HOME" -PathType Container)) {
+    Write-Error "fail to move MAVEN_HOME"
+  }
+} finally {
+  try { Remove-Item $TMP_DOWNLOAD_DIR -Recurse -Force | Out-Null }
+  catch { Write-Warning "Cannot remove $TMP_DOWNLOAD_DIR" }
+}
+
+Write-Output "MVN_CMD=$MAVEN_HOME/bin/$MVN_CMD"
+</file>
+
+<file path="pom.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.1.0-SNAPSHOT</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.annapurna</groupId>
+	<artifactId>in</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>in</name>
+	<description />
+	<url />
+	<licenses>
+		<license />
+	</licenses>
+	<developers>
+		<developer />
+	</developers>
+	<scm>
+		<connection />
+		<developerConnection />
+		<tag />
+		<url />
+	</scm>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- Validation -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<!-- JWT -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- JWT -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.twilio.sdk</groupId>
+			<artifactId>twilio</artifactId>
+			<version>9.14.1</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>
+</file>
+
+<file path="src/main/java/com/annapurna/in/config/DataSeeder.java">
+package com.annapurna.in.config;
+
+import com.annapurna.in.entity.MenuItem;
+import com.annapurna.in.repository.MenuItemRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+@Component
+@RequiredArgsConstructor
+public class DataSeeder implements CommandLineRunner {
+
+    private final MenuItemRepository menuItemRepository;
+
+    @Override
+    public void run(String... args) {
+        if (menuItemRepository.count() > 0) return; // seed only once
+
+        List<MenuItem> items = List.of(
+            // BIRYANI
+            MenuItem.builder().name("Chicken Dum Biryani").price(150.0).category("Biryani")
+                .description("Aromatic basmati rice layered with juicy chicken. Slow-cooked in dum style with rich spices.").build(),
+            MenuItem.builder().name("Mutton Biryani").price(200.0).category("Biryani")
+                .description("Tender mutton cooked with flavorful long-grain rice. Packed with traditional spices and deep aroma.").build(),
+            MenuItem.builder().name("Egg Biryani").price(120.0).category("Biryani")
+                .description("Boiled eggs blended with spicy masala rice. Simple, tasty and perfectly satisfying meal.").build(),
+            MenuItem.builder().name("Veg Biryani").price(110.0).category("Biryani")
+                .description("Fresh vegetables cooked with fragrant basmati rice. Light, healthy and full of flavor.").build(),
+            MenuItem.builder().name("Paneer Biryani").price(140.0).category("Biryani")
+                .description("Soft paneer cubes mixed with rich masala rice. Creamy texture with delicious spices.").build(),
+            MenuItem.builder().name("Chilli Chicken Biryani").price(170.0).category("Biryani")
+                .description("Spicy chilli chicken tossed with flavorful rice. A bold fusion of Indo-Chinese taste.").build(),
+            MenuItem.builder().name("Kaju Biryani").price(150.0).category("Biryani")
+                .description("Crunchy cashews blended with aromatic rice. Rich, nutty flavor with mild spices.").build(),
+            MenuItem.builder().name("Ulavacharu Biryani").price(180.0).category("Biryani")
+                .description("Traditional ulavacharu gravy mixed with rice. Authentic Andhra taste with tangy richness.").build(),
+            MenuItem.builder().name("Fish Biryani").price(190.0).category("Biryani")
+                .description("Fresh fish cooked with spiced basmati rice. Light, flavorful and coastal-style delight.").build(),
+            MenuItem.builder().name("Prawn Biryani").price(220.0).category("Biryani")
+                .description("Juicy prawns cooked in rich masala rice. Seafood lovers' favorite with bold flavor.").build(),
+
+            // MEALS
+            MenuItem.builder().name("Veg Meals").price(110.0).category("Meals")
+                .description("Complete vegetarian meal with rice, dal, curries, roti, and pickle. Healthy and balanced.").build(),
+            MenuItem.builder().name("Special Meals").price(140.0).category("Meals")
+                .description("Deluxe combo with extra curries, sweets, and special dishes. Rich and filling experience.").build(),
+            MenuItem.builder().name("Non Veg Meals").price(180.0).category("Meals")
+                .description("Rice served with chicken or mutton curry, dal, and sides. A complete feast.").build(),
+            MenuItem.builder().name("Mini Meals").price(90.0).category("Meals")
+                .description("Light meal with rice, one curry, dal, and pickle. Perfect for quick hunger.").build(),
+            MenuItem.builder().name("Paneer Meals").price(130.0).category("Meals")
+                .description("Paneer curry served with rice, roti, and sides. Creamy and delicious.").build(),
+            MenuItem.builder().name("Chicken Meals").price(170.0).category("Meals")
+                .description("Chicken curry paired with rice, dal, and sides. Protein-rich and tasty.").build(),
+            MenuItem.builder().name("Fish Meals").price(190.0).category("Meals")
+                .description("Fish curry served with rice and traditional sides. Coastal flavor delight.").build(),
+            MenuItem.builder().name("Mutton Meals").price(210.0).category("Meals")
+                .description("Tender mutton curry with rice and sides. Rich and satisfying meal.").build(),
+
+            // STARTERS
+            MenuItem.builder().name("Gobi Manchurian").price(140.0).category("Starters")
+                .description("Crispy cauliflower tossed in spicy Manchurian sauce. Perfect Indo-Chinese starter.").build(),
+            MenuItem.builder().name("Paneer Chilli").price(160.0).category("Starters")
+                .description("Fried paneer cubes cooked with capsicum and spicy sauces. Soft and flavorful.").build(),
+            MenuItem.builder().name("Veg Manchurian").price(140.0).category("Starters")
+                .description("Vegetable balls tossed in tangy Manchurian gravy. A classic veg starter.").build(),
+            MenuItem.builder().name("Chicken Chilli").price(150.0).category("Starters")
+                .description("Juicy chicken pieces stir-fried with spices and sauces. Spicy and delicious.").build(),
+            MenuItem.builder().name("Chicken 65").price(150.0).category("Starters")
+                .description("Deep-fried spicy chicken with curry leaves and masala. South Indian favorite.").build(),
+            MenuItem.builder().name("Chicken Manchurian").price(150.0).category("Starters")
+                .description("Chicken balls tossed in flavorful Manchurian sauce. Rich and tangy taste.").build(),
+            MenuItem.builder().name("Chicken Garlic Bread").price(150.0).category("Starters")
+                .description("Crispy bread topped with garlic butter and chicken. Crunchy and savory.").build(),
+            MenuItem.builder().name("Chicken Lollipop").price(160.0).category("Starters")
+                .description("Fried chicken wings shaped like lollipops. Crispy outside, juicy inside.").build(),
+            MenuItem.builder().name("Mutton Chilli").price(180.0).category("Starters")
+                .description("Spicy mutton pieces cooked with sauces and peppers. Bold and rich flavor.").build(),
+
+            // TANDOORI
+            MenuItem.builder().name("Tandoori Chicken Half").price(190.0).category("Tandoori")
+                .description("Half chicken marinated in spices and grilled in tandoor. Smoky and juicy.").build(),
+            MenuItem.builder().name("Tandoori Chicken Full").price(320.0).category("Tandoori")
+                .description("Full chicken roasted in traditional tandoor. Rich smoky flavor.").build(),
+            MenuItem.builder().name("Chicken Tikka").price(200.0).category("Tandoori")
+                .description("Boneless chicken marinated and grilled. Soft, smoky and flavorful.").build(),
+            MenuItem.builder().name("Kalmi Kebab").price(200.0).category("Tandoori")
+                .description("Juicy chicken leg pieces marinated and grilled. Rich and tender taste.").build(),
+            MenuItem.builder().name("Tangdi Kebab").price(210.0).category("Tandoori")
+                .description("Spiced chicken drumsticks grilled to perfection. Smoky and juicy.").build(),
+            MenuItem.builder().name("Chicken Seekh Kebab").price(190.0).category("Tandoori")
+                .description("Minced chicken skewers grilled in tandoor. Soft and flavorful.").build(),
+            MenuItem.builder().name("Paneer Tikka").price(180.0).category("Tandoori")
+                .description("Paneer cubes grilled with spices and veggies. Smoky vegetarian delight.").build(),
+            MenuItem.builder().name("Mushroom Tikka").price(170.0).category("Tandoori")
+                .description("Juicy mushrooms marinated and grilled. Light and flavorful.").build(),
+
+            // DESSERTS
+            MenuItem.builder().name("Gulab Jamun").price(60.0).category("Desserts")
+                .description("Soft fried dumplings soaked in sugar syrup. Sweet and classic dessert.").build(),
+            MenuItem.builder().name("Rasmalai").price(80.0).category("Desserts")
+                .description("Soft paneer discs soaked in creamy milk. Rich and delicious sweet.").build(),
+            MenuItem.builder().name("Ice Cream").price(50.0).category("Desserts")
+                .description("Chilled creamy ice cream. Perfect refreshing dessert.").build(),
+            MenuItem.builder().name("Chocolate Cake").price(120.0).category("Desserts")
+                .description("Moist chocolate cake with rich flavor. Perfect sweet treat.").build(),
+            MenuItem.builder().name("Brownie").price(100.0).category("Desserts")
+                .description("Soft chocolate brownie with fudgy texture. Rich and indulgent.").build(),
+            MenuItem.builder().name("Cupcake").price(90.0).category("Desserts")
+                .description("Mini cake topped with cream frosting. Sweet and delightful.").build(),
+
+            // DRINKS
+            MenuItem.builder().name("Coke").price(20.0).category("Drinks")
+                .description("Chilled carbonated soft drink. Refreshing and fizzy.").build(),
+            MenuItem.builder().name("Pepsi").price(40.0).category("Drinks")
+                .description("Classic cola drink with refreshing taste.").build(),
+            MenuItem.builder().name("Sprite").price(20.0).category("Drinks")
+                .description("Lemon-lime flavored soft drink. Crisp and refreshing.").build(),
+            MenuItem.builder().name("Thumbs Up").price(20.0).category("Drinks")
+                .description("Strong cola with bold taste. Popular Indian favorite.").build(),
+            MenuItem.builder().name("Lassi").price(30.0).category("Drinks")
+                .description("Traditional yogurt-based drink. Cool and refreshing.").build(),
+            MenuItem.builder().name("Buttermilk").price(30.0).category("Drinks")
+                .description("Light spiced buttermilk. Perfect for digestion.").build()
+        );
+
+        menuItemRepository.saveAll(items);
+        System.out.println("✅ Menu data seeded: " + items.size() + " items");
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/config/SecurityConfig.java">
+package com.annapurna.in.config;
+
+import com.annapurna.in.security.JwtFilter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+@Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor
+public class SecurityConfig {
+
+    private final JwtFilter jwtFilter;
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(csrf -> csrf.disable())
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(
+                                "/api/auth/**",
+                                "/api/menu/**",
+                                "/api/faq",
+                                "/api/contact",
+                                "/api/privacy")
+                        .permitAll()
+
+                        // ✅ Allow ONLY address APIs without auth (safe for now)
+                        .requestMatchers("/api/addresses/**").permitAll()
+
+                        // 🔒 Everything else still secured
+                        .anyRequest().authenticated()
+                        
+                    )
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
+    }
+
+    @Bean
+    public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
+        org.springframework.web.cors.CorsConfiguration config = new org.springframework.web.cors.CorsConfiguration();
+        config.addAllowedOriginPattern("*");
+        config.addAllowedMethod("*");
+        config.addAllowedHeader("*");
+        config.setAllowCredentials(true);
+        org.springframework.web.cors.UrlBasedCorsConfigurationSource source = new org.springframework.web.cors.UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+        return source;
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/config/TwilioConfig.java">
+package com.annapurna.in.config;
+
+import com.twilio.Twilio;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+
+import jakarta.annotation.PostConstruct;
+
+@Configuration
+public class TwilioConfig {
+
+    @Value("${twilio.account.sid}")
+    private String accountSid;
+
+    @Value("${twilio.auth.token}")
+    private String authToken;
+
+    @PostConstruct
+    public void init() {
+        Twilio.init(accountSid, authToken);
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/controller/AddressController.java">
+package com.annapurna.in.controller;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.service.AddressService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/addresses")
+@RequiredArgsConstructor
+public class AddressController {
+
+    private final AddressService addressService;
+
+    @GetMapping
+    public ResponseEntity<ApiResponse<List<AddressDTO>>> getAddresses(Authentication auth) {
+        return ResponseEntity.ok(ApiResponse.success("Addresses fetched",
+                addressService.getAddresses(auth.getName())));
+    }
+
+    @PostMapping
+    public ResponseEntity<ApiResponse<AddressDTO>> addAddress(
+            Authentication auth, @RequestBody AddressRequest request) {
+        try {
+            return ResponseEntity.ok(ApiResponse.success("Address added",
+                    addressService.addAddress(auth.getName(), request)));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+    @PutMapping("/{addressId}")
+    public ResponseEntity<ApiResponse<AddressDTO>> updateAddress(
+            Authentication auth, @PathVariable Long addressId, @RequestBody AddressRequest request) {
+        try {
+            return ResponseEntity.ok(ApiResponse.success("Address updated",
+                    addressService.updateAddress(auth.getName(), addressId, request)));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+    @DeleteMapping("/{addressId}")
+    public ResponseEntity<ApiResponse<String>> deleteAddress(
+            Authentication auth, @PathVariable Long addressId) {
+        try {
+            addressService.deleteAddress(auth.getName(), addressId);
+            return ResponseEntity.ok(ApiResponse.success("Address deleted", "Done"));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+    @PostMapping("/{addressId}/set-default")
+    public ResponseEntity<ApiResponse<List<AddressDTO>>> setDefault(
+            Authentication auth, @PathVariable Long addressId) {
+        try {
+            return ResponseEntity.ok(ApiResponse.success("Default set",
+                    addressService.setDefault(auth.getName(), addressId)));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/controller/AuthController.java">
+package com.annapurna.in.controller;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.service.AuthService;
+import com.annapurna.in.service.OtpService;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/auth")
+@RequiredArgsConstructor
+public class AuthController {
+
+    private final AuthService authService;
+    private final OtpService otpService;
+
+    @PostMapping("/login")
+    public ResponseEntity<ApiResponse<AuthResponse>> login(@RequestBody AuthRequest request) {
+        try {
+            AuthResponse response = authService.login(request);
+            return ResponseEntity.ok(ApiResponse.success("Login successful", response));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<ApiResponse<AuthResponse>> register(@RequestBody RegisterRequest request) {
+        try {
+            AuthResponse response = authService.register(request);
+            return ResponseEntity.ok(ApiResponse.success("Registration successful", response));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+    @PostMapping("/otp/send")
+    public ResponseEntity<?> sendOtp(@RequestBody OtpRequest request) {
+        otpService.sendOtp(request.getMobile());
+        return ResponseEntity.ok(new ApiResponse(true, "OTP sent", null));
+    }
+
+    @PostMapping("/otp/verify")
+    public ResponseEntity<?> verifyOtp(@RequestBody OtpVerifyRequest request) {
+        boolean valid = otpService.verifyOtp(request.getMobile(), request.getOtp());
+
+        if (!valid) {
+            return ResponseEntity.badRequest()
+                    .body(new ApiResponse(false, "Invalid OTP", null));
+        }
+
+        return ResponseEntity.ok(new ApiResponse(true, "OTP verified", null));
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/controller/CartController.java">
+package com.annapurna.in.controller;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.service.CartService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/cart")
+@RequiredArgsConstructor
+public class CartController {
+
+    private final CartService cartService;
+
+    @GetMapping
+    public ResponseEntity<ApiResponse<CartSummaryDTO>> getCart(Authentication auth) {
+        return ResponseEntity.ok(ApiResponse.success("Cart fetched",
+                cartService.getCart(auth.getName())));
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<ApiResponse<CartSummaryDTO>> addToCart(
+            Authentication auth, @RequestBody CartItemRequest request) {
+        try {
+            return ResponseEntity.ok(ApiResponse.success("Item added",
+                    cartService.addToCart(auth.getName(), request)));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+    @PostMapping("/remove/{menuItemId}")
+    public ResponseEntity<ApiResponse<CartSummaryDTO>> removeFromCart(
+            Authentication auth, @PathVariable Long menuItemId) {
+        return ResponseEntity.ok(ApiResponse.success("Item removed",
+                cartService.removeFromCart(auth.getName(), menuItemId)));
+    }
+
+    @DeleteMapping("/clear")
+    public ResponseEntity<ApiResponse<String>> clearCart(Authentication auth) {
+        cartService.clearCart(auth.getName());
+        return ResponseEntity.ok(ApiResponse.success("Cart cleared", "Done"));
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/controller/InfoController.java">
+package com.annapurna.in.controller;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.service.InfoService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequiredArgsConstructor
+public class InfoController {
+
+    private final InfoService infoService;
+
+    @GetMapping("/api/faq")
+    public ResponseEntity<ApiResponse<List<FaqDTO>>> getFaqs() {
+        return ResponseEntity.ok(ApiResponse.success("FAQs fetched", infoService.getFaqs()));
+    }
+
+    @GetMapping("/api/contact")
+    public ResponseEntity<ApiResponse<List<ContactDTO>>> getContactInfo() {
+        return ResponseEntity.ok(ApiResponse.success("Contact info fetched", infoService.getContactInfo()));
+    }
+
+    @GetMapping("/api/privacy")
+    public ResponseEntity<ApiResponse<String>> getPrivacyPolicy() {
+        return ResponseEntity.ok(ApiResponse.success("Privacy policy fetched", infoService.getPrivacyPolicy()));
+    }
+
+    @PostMapping("/api/rate")
+    public ResponseEntity<ApiResponse<String>> submitRating(@RequestBody RateAppRequest request) {
+        return ResponseEntity.ok(infoService.submitRating(request));
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/controller/MenuController.java">
+package com.annapurna.in.controller;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.service.MenuService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/menu")
+@RequiredArgsConstructor
+public class MenuController {
+
+    private final MenuService menuService;
+
+    @GetMapping
+    public ResponseEntity<ApiResponse<List<MenuItemDTO>>> getAllItems() {
+        return ResponseEntity.ok(ApiResponse.success("Menu fetched", menuService.getAllItems()));
+    }
+
+    @GetMapping("/category/{category}")
+    public ResponseEntity<ApiResponse<List<MenuItemDTO>>> getByCategory(@PathVariable String category) {
+        return ResponseEntity.ok(ApiResponse.success("Category fetched", menuService.getByCategory(category)));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<ApiResponse<List<MenuItemDTO>>> search(@RequestParam String q) {
+        return ResponseEntity.ok(ApiResponse.success("Search results", menuService.search(q)));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse<MenuItemDTO>> getById(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok(ApiResponse.success("Item fetched", menuService.getById(id)));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/controller/OrderController.java">
+package com.annapurna.in.controller;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.service.OrderService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/orders")
+@RequiredArgsConstructor
+public class OrderController {
+
+    private final OrderService orderService;
+
+    @PostMapping("/place")
+    public ResponseEntity<ApiResponse<OrderDTO>> placeOrder(
+            Authentication auth, @RequestBody PlaceOrderRequest request) {
+        try {
+            return ResponseEntity.ok(ApiResponse.success("Order placed",
+                    orderService.placeOrder(auth.getName(), request)));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+    @GetMapping("/history")
+    public ResponseEntity<ApiResponse<List<OrderDTO>>> getHistory(Authentication auth) {
+        return ResponseEntity.ok(ApiResponse.success("Order history fetched",
+                orderService.getOrderHistory(auth.getName())));
+    }
+
+    @GetMapping("/{orderId}")
+    public ResponseEntity<ApiResponse<OrderDTO>> getOrder(@PathVariable String orderId) {
+        try {
+            return ResponseEntity.ok(ApiResponse.success("Order fetched",
+                    orderService.getOrderById(orderId)));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/controller/PaymentController.java">
+package com.annapurna.in.controller;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.service.PaymentService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/payment")
+@RequiredArgsConstructor
+public class PaymentController {
+
+    private final PaymentService paymentService;
+
+    @PostMapping("/process")
+    public ResponseEntity<ApiResponse<PaymentResponse>> processPayment(
+            @RequestBody PaymentRequest request) {
+        try {
+            PaymentResponse response = paymentService.processPayment(request);
+            return ResponseEntity.ok(ApiResponse.success("Payment processed", response));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/controller/UserController.java">
+package com.annapurna.in.controller;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/user")
+@RequiredArgsConstructor
+public class UserController {
+
+    private final UserService userService;
+
+    @GetMapping("/profile")
+    public ResponseEntity<ApiResponse<UserProfileDTO>> getProfile(Authentication auth) {
+        return ResponseEntity.ok(ApiResponse.success("Profile fetched",
+                userService.getProfile(auth.getName())));
+    }
+
+    @PutMapping("/profile")
+    public ResponseEntity<ApiResponse<UserProfileDTO>> updateProfile(
+            Authentication auth, @RequestBody UpdateProfileRequest request) {
+        try {
+            return ResponseEntity.ok(ApiResponse.success("Profile updated",
+                    userService.updateProfile(auth.getName(), request)));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/controller/WishlistController.java">
+package com.annapurna.in.controller;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.service.WishlistService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/wishlist")
+@RequiredArgsConstructor
+public class WishlistController {
+
+    private final WishlistService wishlistService;
+
+    @GetMapping
+    public ResponseEntity<ApiResponse<List<WishlistItemDTO>>> getWishlist(Authentication auth) {
+        return ResponseEntity.ok(ApiResponse.success("Wishlist fetched",
+                wishlistService.getWishlist(auth.getName())));
+    }
+
+    @PostMapping("/toggle/{menuItemId}")
+    public ResponseEntity<ApiResponse<List<WishlistItemDTO>>> toggleWishlist(
+            Authentication auth, @PathVariable Long menuItemId) {
+        try {
+            return ResponseEntity.ok(ApiResponse.success("Wishlist updated",
+                    wishlistService.toggleWishlist(auth.getName(), menuItemId)));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+    @GetMapping("/check/{menuItemId}")
+    public ResponseEntity<ApiResponse<Boolean>> isWishlisted(
+            Authentication auth, @PathVariable Long menuItemId) {
+        return ResponseEntity.ok(ApiResponse.success("Checked",
+                wishlistService.isWishlisted(auth.getName(), menuItemId)));
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/AddressDTO.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class AddressDTO {
+    private Long id;
+    private String tag;
+    private String tagIcon;
+    private String name;
+    private String line1;
+    private String line2;
+    private String city;
+    private String state;
+    private String pincode;
+    private String phone;
+    private Boolean isDefault;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/AddressRequest.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+
+@Data
+public class AddressRequest {
+    private String tag;
+    private String tagIcon;
+    private String name;
+    private String line1;
+    private String line2;
+    private String city;
+    private String state;
+    private String pincode;
+    private String phone;
+    private Boolean isDefault;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/ApiResponse.java">
+package com.annapurna.in.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ApiResponse<T> {
+    private boolean success;
+    private String message;
+    private T data;
+
+    public static <T> ApiResponse<T> success(String message, T data) {
+        return new ApiResponse<>(true, message, data);
+    }
+
+    public static <T> ApiResponse<T> error(String message) {
+        return new ApiResponse<>(false, message, null);
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/AuthRequest.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+
+@Data
+public class AuthRequest {
+    private String mobile;
+    private String password;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/AuthResponse.java">
+package com.annapurna.in.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class AuthResponse {
+    private String token;
+    private String message;
+    private Long userId;
+    private String name;
+    private String mobile;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/CartItemDTO.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CartItemDTO {
+    private Long id;
+    private Long menuItemId;
+    private String name;
+    private Double price;
+    private String category;
+    private String imageUrl;
+    private Integer quantity;
+    private Double total;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/CartItemRequest.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+
+@Data
+public class CartItemRequest {
+    private Long menuItemId;
+    private Integer quantity;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/CartSummaryDTO.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CartSummaryDTO {
+    private List<CartItemDTO> items;
+    private Double subtotal;
+    private Double tax;
+    private Double total;
+    private Integer totalItems;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/ContactDTO.java">
+package com.annapurna.in.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ContactDTO {
+    private String icon;
+    private String label;
+    private String value;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/FaqDTO.java">
+package com.annapurna.in.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class FaqDTO {
+    private String question;
+    private String answer;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/MenuItemDTO.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class MenuItemDTO {
+    private Long id;
+    private String name;
+    private Double price;
+    private String category;
+    private String description;
+    private String imageUrl;
+    private Boolean available;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/OrderDTO.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class OrderDTO {
+    private Long id;
+    private String orderId;
+    private Double subtotal;
+    private Double tax;
+    private Double total;
+    private Double discount;
+    private Double deliveryFee;
+    private String status;
+    private String paymentMethod;
+    private String deliveryAddress;
+    private LocalDateTime createdAt;
+    private List<OrderItemDTO> items;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/OrderItemDTO.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class OrderItemDTO {
+    private Long id;
+    private Long menuItemId;
+    private String name;
+    private Integer quantity;
+    private Double price;
+    private Double total;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/OtpRequest.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+
+@Data
+public class OtpRequest {
+    private String mobile;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/OtpVerifyRequest.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+
+@Data
+public class OtpVerifyRequest {
+    private String mobile;
+    private String otp;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/PaymentRequest.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+
+@Data
+public class PaymentRequest {
+    private String paymentMethod;
+    private String upiId;
+    private String cardNumber;
+    private String cardName;
+    private String expiry;
+    private Double amount;
+    private Long orderId;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/PaymentResponse.java">
+package com.annapurna.in.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class PaymentResponse {
+    private boolean success;
+    private String transactionId;
+    private String message;
+    private String orderId;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/PlaceOrderRequest.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+
+@Data
+public class PlaceOrderRequest {
+    private String paymentMethod;
+    private String deliveryAddress;
+    private Double total;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/RateAppRequest.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+
+@Data
+public class RateAppRequest {
+    private Integer rating;
+    private String review;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/RegisterRequest.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+
+@Data
+public class RegisterRequest {
+    private String name;
+    private String mobile;
+    private String password;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/UpdateProfileRequest.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+
+@Data
+public class UpdateProfileRequest {
+    private String name;
+    private String email;
+    private String dob;
+    private String gender;
+    private String phone;
+    
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/UserProfileDTO.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserProfileDTO {
+    private Long id;
+    private String name;
+    private String mobile;
+    private String email;
+    private String dob;
+    private String gender;
+    private int orderCount;
+    private int wishlistCount;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/dto/WishlistItemDTO.java">
+package com.annapurna.in.dto;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class WishlistItemDTO {
+    private Long id;
+    private Long menuItemId;
+    private String name;
+    private Double price;
+    private String category;
+    private String imageUrl;
+    private String description;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/entity/Address.java">
+package com.annapurna.in.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "addresses")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Address {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    private String tag;
+
+    @Column(name = "tag_icon")
+    private String tagIcon;
+
+    private String name;
+
+    private String line1;
+
+    private String line2;
+
+    private String city;
+
+    private String state;
+
+    private String pincode;
+
+    private String phone;
+
+    @Column(name = "is_default")
+    @Builder.Default
+    private Boolean isDefault = false;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/entity/CartItem.java">
+package com.annapurna.in.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "cart_items")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class CartItem {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "menu_item_id", nullable = false)
+    private MenuItem menuItem;
+
+    @Column(nullable = false)
+    private Integer quantity;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/entity/MenuItem.java">
+package com.annapurna.in.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "menu_items")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class MenuItem {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    private Double price;
+
+    @Column(nullable = false)
+    private String category;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
+    private String imageUrl;
+
+    @Column(nullable = false)
+    @Builder.Default
+    private Boolean available = true;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/entity/Order.java">
+package com.annapurna.in.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Entity
+@Table(name = "orders")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Order {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "order_id", unique = true, nullable = false)
+    private String orderId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<OrderItem> items;
+
+    @Column(nullable = false)
+    private Double subtotal;
+
+    @Column(nullable = false)
+    private Double tax;
+
+    @Column(nullable = false)
+    private Double total;
+
+    private Double discount;
+
+    @Column(name = "delivery_fee")
+    @Builder.Default
+    private Double deliveryFee = 0.0;
+
+    @Column(nullable = false)
+    @Builder.Default
+    private String status = "Placed";
+
+    @Column(name = "payment_method")
+    private String paymentMethod;
+
+    @Column(name = "delivery_address")
+    private String deliveryAddress;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/entity/OrderItem.java">
+package com.annapurna.in.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "order_items")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class OrderItem {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "menu_item_id", nullable = false)
+    private MenuItem menuItem;
+
+    @Column(nullable = false)
+    private Integer quantity;
+
+    @Column(nullable = false)
+    private Double price;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/entity/OtpVerification.java">
+package com.annapurna.in.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "otp_verifications")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class OtpVerification {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String mobile;
+
+    @Column(nullable = false)
+    private String otp;
+
+    private LocalDateTime expiryTime;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "expires_at")
+    private LocalDateTime expiresAt;
+
+    @Column(nullable = false)
+    @Builder.Default
+    private Boolean used = false;
+
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/entity/User.java">
+package com.annapurna.in.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "users")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false, unique = true)
+    private String mobile;
+
+    @Column(nullable = false)
+    private String password;
+
+    private String email;
+
+    private LocalDate dob;
+
+    private String gender;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/entity/WishlistItem.java">
+package com.annapurna.in.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "wishlist_items",
+       uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "menu_item_id"}))
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class WishlistItem {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "menu_item_id", nullable = false)
+    private MenuItem menuItem;
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/exception/GlobalExceptionHandler.java">
+package com.annapurna.in.exception;
+
+import com.annapurna.in.dto.ApiResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<ApiResponse<String>> handleRuntime(RuntimeException ex) {
+        return ResponseEntity.badRequest().body(ApiResponse.error(ex.getMessage()));
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ApiResponse<String>> handleGeneral(Exception ex) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ApiResponse.error("Internal server error: " + ex.getMessage()));
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/InApplication.java">
+package com.annapurna.in;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class InApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(InApplication.class, args);
+	}
+
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/repository/AddressRepository.java">
+package com.annapurna.in.repository;
+
+import com.annapurna.in.entity.Address;
+import com.annapurna.in.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+@Repository
+public interface AddressRepository extends JpaRepository<Address, Long> {
+    List<Address> findByUser(User user);
+
+    @Modifying
+    @Query("UPDATE Address a SET a.isDefault = false WHERE a.user = :user")
+    void clearDefaultForUser(User user);
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/repository/CartItemRepository.java">
+package com.annapurna.in.repository;
+
+import com.annapurna.in.entity.CartItem;
+import com.annapurna.in.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public interface CartItemRepository extends JpaRepository<CartItem, Long> {
+    List<CartItem> findByUser(User user);
+    Optional<CartItem> findByUserAndMenuItemId(User user, Long menuItemId);
+    void deleteByUser(User user);
+    void deleteByUserAndMenuItemId(User user, Long menuItemId);
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/repository/MenuItemRepository.java">
+package com.annapurna.in.repository;
+
+import com.annapurna.in.entity.MenuItem;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+@Repository
+public interface MenuItemRepository extends JpaRepository<MenuItem, Long> {
+    List<MenuItem> findByCategory(String category);
+    List<MenuItem> findByAvailableTrue();
+    List<MenuItem> findByCategoryAndAvailableTrue(String category);
+    List<MenuItem> findByNameContainingIgnoreCaseAndAvailableTrue(String name);
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/repository/OrderRepository.java">
+package com.annapurna.in.repository;
+
+import com.annapurna.in.entity.Order;
+import com.annapurna.in.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public interface OrderRepository extends JpaRepository<Order, Long> {
+    List<Order> findByUserOrderByCreatedAtDesc(User user);
+    Optional<Order> findByOrderId(String orderId);
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/repository/OtpVerificationRepository.java">
+package com.annapurna.in.repository;
+
+import com.annapurna.in.entity.OtpVerification;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.Optional;
+
+@Repository
+public interface OtpVerificationRepository extends JpaRepository<OtpVerification, Long> {
+    Optional<OtpVerification> findTopByMobileAndUsedFalseOrderByCreatedAtDesc(String mobile);
+
+    OtpVerification findTopByMobileOrderByExpiryTimeDesc(String mobile);
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/repository/UserRepository.java">
+package com.annapurna.in.repository;
+
+import com.annapurna.in.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.Optional;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByMobile(String mobile);
+    boolean existsByMobile(String mobile);
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/repository/WishlistItemRepository.java">
+package com.annapurna.in.repository;
+
+import com.annapurna.in.entity.WishlistItem;
+import com.annapurna.in.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public interface WishlistItemRepository extends JpaRepository<WishlistItem, Long> {
+    List<WishlistItem> findByUser(User user);
+
+    Optional<WishlistItem> findByUserAndMenuItemId(User user, Long menuItemId);
+
+    boolean existsByUserAndMenuItemId(User user, Long menuItemId);
+
+    // ADD @Modifying here — this is the root cause of delete not working in DB
+    @Modifying
+    @Query("DELETE FROM WishlistItem w WHERE w.user = :user AND w.menuItem.id = :menuItemId")
+    void deleteByUserAndMenuItemId(@Param("user") User user, @Param("menuItemId") Long menuItemId);
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/security/JwtFilter.java">
+package com.annapurna.in.security;
+
+import com.annapurna.in.service.CustomUserDetailsService;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import java.io.IOException;
+
+@Component
+@RequiredArgsConstructor
+public class JwtFilter extends OncePerRequestFilter {
+
+    private final JwtUtil jwtUtil;
+    private final CustomUserDetailsService userDetailsService;
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain chain)
+            throws ServletException, IOException {
+
+        String authHeader = request.getHeader("Authorization");
+
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            chain.doFilter(request, response);
+            return;
+        }
+
+        String token = authHeader.substring(7);
+
+        if (!jwtUtil.validateToken(token)) {
+            chain.doFilter(request, response);
+            return;
+        }
+
+        String mobile = jwtUtil.extractMobile(token);
+
+        if (mobile != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            UserDetails userDetails = userDetailsService.loadUserByUsername(mobile);
+            UsernamePasswordAuthenticationToken auth =
+                    new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+            auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            SecurityContextHolder.getContext().setAuthentication(auth);
+        }
+
+        chain.doFilter(request, response);
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/security/JwtUtil.java">
+package com.annapurna.in.security;
+
+import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import java.security.Key;
+import java.util.Date;
+
+@Component
+public class JwtUtil {
+
+    @Value("${app.jwt.secret}")
+    private String secret;
+
+    @Value("${app.jwt.expiration}")
+    private Long expiration;
+
+    private Key getSigningKey() {
+        return Keys.hmacShaKeyFor(secret.getBytes());
+    }
+
+    public String generateToken(String mobile) {
+        return Jwts.builder()
+                .setSubject(mobile)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+                .compact();
+    }
+
+    public String extractMobile(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .getSubject();
+    }
+
+    public boolean validateToken(String token) {
+        try {
+            Jwts.parserBuilder()
+                    .setSigningKey(getSigningKey())
+                    .build()
+                    .parseClaimsJws(token);
+            return true;
+        } catch (JwtException | IllegalArgumentException e) {
+            return false;
+        }
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/service/AddressService.java">
+package com.annapurna.in.service;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.entity.*;
+import com.annapurna.in.repository.*;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+@RequiredArgsConstructor
+public class AddressService {
+
+    private final AddressRepository addressRepository;
+    private final UserRepository userRepository;
+
+    public List<AddressDTO> getAddresses(String mobile) {
+        User user = getUser(mobile);
+        return addressRepository.findByUser(user)
+                .stream().map(this::toDTO).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public AddressDTO addAddress(String mobile, AddressRequest request) {
+        User user = getUser(mobile);
+
+        if (Boolean.TRUE.equals(request.getIsDefault())) {
+            addressRepository.clearDefaultForUser(user);
+        }
+
+        Address address = Address.builder()
+                .user(user)
+                .tag(request.getTag())
+                .tagIcon(request.getTagIcon())
+                .name(request.getName())
+                .line1(request.getLine1())
+                .line2(request.getLine2())
+                .city(request.getCity())
+                .state(request.getState())
+                .pincode(request.getPincode())
+                .phone(request.getPhone())
+                .isDefault(request.getIsDefault() != null ? request.getIsDefault() : false)
+                .build();
+
+        return toDTO(addressRepository.save(address));
+    }
+
+    @Transactional
+    public AddressDTO updateAddress(String mobile, Long addressId, AddressRequest request) {
+        User user = getUser(mobile);
+        Address address = addressRepository.findById(addressId)
+                .orElseThrow(() -> new RuntimeException("Address not found"));
+
+        if (!address.getUser().getId().equals(user.getId())) {
+            throw new RuntimeException("Unauthorized");
+        }
+
+        if (Boolean.TRUE.equals(request.getIsDefault())) {
+            addressRepository.clearDefaultForUser(user);
+        }
+
+        address.setTag(request.getTag());
+        address.setTagIcon(request.getTagIcon());
+        address.setName(request.getName());
+        address.setLine1(request.getLine1());
+        address.setLine2(request.getLine2());
+        address.setCity(request.getCity());
+        address.setState(request.getState());
+        address.setPincode(request.getPincode());
+        address.setPhone(request.getPhone());
+        if (request.getIsDefault() != null) {
+            address.setIsDefault(request.getIsDefault());
+        }
+
+        return toDTO(addressRepository.save(address));
+    }
+
+    @Transactional
+    public void deleteAddress(String mobile, Long addressId) {
+        User user = getUser(mobile);
+        Address address = addressRepository.findById(addressId)
+                .orElseThrow(() -> new RuntimeException("Address not found"));
+
+        if (!address.getUser().getId().equals(user.getId())) {
+            throw new RuntimeException("Unauthorized");
+        }
+
+        addressRepository.delete(address);
+    }
+
+    @Transactional
+    public List<AddressDTO> setDefault(String mobile, Long addressId) {
+        User user = getUser(mobile);
+        addressRepository.clearDefaultForUser(user);
+
+        Address address = addressRepository.findById(addressId)
+                .orElseThrow(() -> new RuntimeException("Address not found"));
+
+        if (!address.getUser().getId().equals(user.getId())) {
+            throw new RuntimeException("Unauthorized");
+        }
+
+        address.setIsDefault(true);
+        addressRepository.save(address);
+
+        return getAddresses(mobile);
+    }
+
+    private User getUser(String mobile) {
+        return userRepository.findByMobile(mobile)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    private AddressDTO toDTO(Address a) {
+        return new AddressDTO(
+                a.getId(), a.getTag(), a.getTagIcon(), a.getName(),
+                a.getLine1(), a.getLine2(), a.getCity(), a.getState(),
+                a.getPincode(), a.getPhone(), a.getIsDefault()
+        );
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/service/AuthService.java">
+package com.annapurna.in.service;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.entity.*;
+import com.annapurna.in.repository.*;
+import com.annapurna.in.security.JwtUtil;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.Random;
+
+@Service
+@RequiredArgsConstructor
+public class AuthService {
+
+    private final UserRepository userRepository;
+    private final OtpVerificationRepository otpRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtUtil jwtUtil;
+
+    public AuthResponse login(AuthRequest request) {
+        User user = userRepository.findByMobile(request.getMobile())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new RuntimeException("Invalid password");
+        }
+
+        String token = jwtUtil.generateToken(user.getMobile());
+        return new AuthResponse(token, "Login successful", user.getId(), user.getName(), user.getMobile());
+    }
+
+    public AuthResponse register(RegisterRequest request) {
+        if (userRepository.existsByMobile(request.getMobile())) {
+            throw new RuntimeException("Mobile number already registered");
+        }
+
+        User user = User.builder()
+                .name(request.getName())
+                .mobile(request.getMobile())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .build();
+
+        userRepository.save(user);
+
+        String token = jwtUtil.generateToken(user.getMobile());
+        return new AuthResponse(token, "Registration successful", user.getId(), user.getName(), user.getMobile());
+    }
+
+    public ApiResponse<String> sendOtp(OtpRequest request) {
+        // In production, integrate with SMS gateway (Twilio, MSG91, etc.)
+        // For now, we use a fixed OTP "123456" for testing
+        String otp = String.format("%06d", new Random().nextInt(999999));
+
+        OtpVerification otpRecord = OtpVerification.builder()
+                .mobile(request.getMobile())
+                .otp(otp)
+                .createdAt(LocalDateTime.now())
+                .expiresAt(LocalDateTime.now().plusMinutes(5))
+                .used(false)
+                .build();
+
+        otpRepository.save(otpRecord);
+
+        // Log OTP for testing (remove in production)
+        System.out.println("OTP for " + request.getMobile() + ": " + otp);
+
+        return ApiResponse.success("OTP sent successfully", "OTP sent to " + request.getMobile());
+    }
+
+    public ApiResponse<String> verifyOtp(OtpVerifyRequest request) {
+        OtpVerification otpRecord = otpRepository
+                .findTopByMobileAndUsedFalseOrderByCreatedAtDesc(request.getMobile())
+                .orElseThrow(() -> new RuntimeException("No OTP found"));
+
+        if (LocalDateTime.now().isAfter(otpRecord.getExpiresAt())) {
+            throw new RuntimeException("OTP expired");
+        }
+
+        if (!otpRecord.getOtp().equals(request.getOtp())) {
+            throw new RuntimeException("Invalid OTP");
+        }
+
+        otpRecord.setUsed(true);
+        otpRepository.save(otpRecord);
+
+        return ApiResponse.success("OTP verified successfully", "Verified");
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/service/CartService.java">
+package com.annapurna.in.service;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.entity.*;
+import com.annapurna.in.repository.*;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+@RequiredArgsConstructor
+public class CartService {
+
+    private final CartItemRepository cartItemRepository;
+    private final MenuItemRepository menuItemRepository;
+    private final UserRepository userRepository;
+
+    public CartSummaryDTO getCart(String mobile) {
+        User user = getUser(mobile);
+        List<CartItem> items = cartItemRepository.findByUser(user);
+        List<CartItemDTO> dtos = items.stream().map(this::toDTO).collect(Collectors.toList());
+
+        double subtotal = dtos.stream().mapToDouble(CartItemDTO::getTotal).sum();
+        double tax = subtotal * 0.1;
+        double total = subtotal + tax;
+        int totalItems = dtos.stream().mapToInt(CartItemDTO::getQuantity).sum();
+
+        return new CartSummaryDTO(dtos, subtotal, tax, total, totalItems);
+    }
+
+    @Transactional
+    public CartSummaryDTO addToCart(String mobile, CartItemRequest request) {
+        User user = getUser(mobile);
+        MenuItem menuItem = menuItemRepository.findById(request.getMenuItemId())
+                .orElseThrow(() -> new RuntimeException("Menu item not found"));
+
+        Optional<CartItem> existing = cartItemRepository.findByUserAndMenuItemId(user, menuItem.getId());
+
+        if (existing.isPresent()) {
+            CartItem item = existing.get();
+            item.setQuantity(item.getQuantity() + (request.getQuantity() != null ? request.getQuantity() : 1));
+            cartItemRepository.save(item);
+        } else {
+            CartItem newItem = CartItem.builder()
+                    .user(user)
+                    .menuItem(menuItem)
+                    .quantity(request.getQuantity() != null ? request.getQuantity() : 1)
+                    .build();
+            cartItemRepository.save(newItem);
+        }
+
+        return getCart(mobile);
+    }
+
+    @Transactional
+    public CartSummaryDTO removeFromCart(String mobile, Long menuItemId) {
+        User user = getUser(mobile);
+        Optional<CartItem> existing = cartItemRepository.findByUserAndMenuItemId(user, menuItemId);
+
+        if (existing.isPresent()) {
+            CartItem item = existing.get();
+            if (item.getQuantity() <= 1) {
+                cartItemRepository.delete(item);
+            } else {
+                item.setQuantity(item.getQuantity() - 1);
+                cartItemRepository.save(item);
+            }
+        }
+
+        return getCart(mobile);
+    }
+
+    @Transactional
+    public void clearCart(String mobile) {
+        User user = getUser(mobile);
+        cartItemRepository.deleteByUser(user);
+    }
+
+    private User getUser(String mobile) {
+        return userRepository.findByMobile(mobile)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    private CartItemDTO toDTO(CartItem item) {
+        return new CartItemDTO(
+                item.getId(),
+                item.getMenuItem().getId(),
+                item.getMenuItem().getName(),
+                item.getMenuItem().getPrice(),
+                item.getMenuItem().getCategory(),
+                item.getMenuItem().getImageUrl(),
+                item.getQuantity(),
+                item.getMenuItem().getPrice() * item.getQuantity()
+        );
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/service/CustomUserDetailsService.java">
+package com.annapurna.in.service;
+
+import com.annapurna.in.entity.User;
+import com.annapurna.in.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.*;
+import org.springframework.stereotype.Service;
+
+import java.util.Collections;
+
+@Service
+@RequiredArgsConstructor
+public class CustomUserDetailsService implements UserDetailsService {
+
+    private final UserRepository userRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String mobile) throws UsernameNotFoundException {
+        User user = userRepository.findByMobile(mobile)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + mobile));
+
+        return new org.springframework.security.core.userdetails.User(
+                user.getMobile(),
+                user.getPassword(),
+                Collections.emptyList()
+        );
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/service/InfoService.java">
+package com.annapurna.in.service;
+
+import com.annapurna.in.dto.*;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class InfoService {
+
+    public List<FaqDTO> getFaqs() {
+        return List.of(
+                new FaqDTO("How to place an order?",
+                        "Browse items → Add to cart → Checkout → Confirm order."),
+                new FaqDTO("How to track my order?",
+                        "Go to Profile → Order History → Select order."),
+                new FaqDTO("Payment issues?",
+                        "Try again or contact support at support@annapurna.com."),
+                new FaqDTO("Can I cancel my order?",
+                        "Orders can be cancelled within 5 minutes of placing."),
+                new FaqDTO("What are the delivery charges?",
+                        "Free delivery on all orders above ₹100.")
+        );
+    }
+
+    public List<ContactDTO> getContactInfo() {
+        return List.of(
+                new ContactDTO("call-outline", "Phone", "+91 98765 43210"),
+                new ContactDTO("mail-outline", "Email", "support@annapurna.com"),
+                new ContactDTO("location-outline", "Location", "Hyderabad, India")
+        );
+    }
+
+    public String getPrivacyPolicy() {
+        return "Annapurna Restaurant Privacy Policy: We respect your privacy. Your personal data is " +
+               "securely stored and never shared with third parties. We collect only essential data " +
+               "required for order processing and improving your experience.";
+    }
+
+    public ApiResponse<String> submitRating(RateAppRequest request) {
+        // In production: save to database
+        System.out.println("App rating received: " + request.getRating() + " stars. Review: " + request.getReview());
+        return ApiResponse.success("Thank you for rating us!", "Rating submitted");
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/service/MenuService.java">
+package com.annapurna.in.service;
+
+import com.annapurna.in.dto.MenuItemDTO;
+import com.annapurna.in.entity.MenuItem;
+import com.annapurna.in.repository.MenuItemRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+@RequiredArgsConstructor
+public class MenuService {
+
+    private final MenuItemRepository menuItemRepository;
+
+    public List<MenuItemDTO> getAllItems() {
+        return menuItemRepository.findByAvailableTrue()
+                .stream().map(this::toDTO).collect(Collectors.toList());
+    }
+
+    public List<MenuItemDTO> getByCategory(String category) {
+        return menuItemRepository.findByCategoryAndAvailableTrue(category)
+                .stream().map(this::toDTO).collect(Collectors.toList());
+    }
+
+    public List<MenuItemDTO> search(String query) {
+        return menuItemRepository.findByNameContainingIgnoreCaseAndAvailableTrue(query)
+                .stream().map(this::toDTO).collect(Collectors.toList());
+    }
+
+    public MenuItemDTO getById(Long id) {
+        MenuItem item = menuItemRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Item not found"));
+        return toDTO(item);
+    }
+
+    private MenuItemDTO toDTO(MenuItem item) {
+        return new MenuItemDTO(
+                item.getId(),
+                item.getName(),
+                item.getPrice(),
+                item.getCategory(),
+                item.getDescription(),
+                item.getImageUrl(),
+                item.getAvailable()
+        );
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/service/OrderService.java">
+package com.annapurna.in.service;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.entity.*;
+import com.annapurna.in.repository.*;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+// import java.util.UUID;
+import java.util.stream.Collectors;
+
+@Service
+@RequiredArgsConstructor
+public class OrderService {
+
+    private final OrderRepository orderRepository;
+    private final CartItemRepository cartItemRepository;
+    private final UserRepository userRepository;
+
+    @Transactional
+    public OrderDTO placeOrder(String mobile, PlaceOrderRequest request) {
+        User user = getUser(mobile);
+        List<CartItem> cartItems = cartItemRepository.findByUser(user);
+
+        if (cartItems.isEmpty()) {
+            throw new RuntimeException("Cart is empty");
+        }
+
+        double subtotal = cartItems.stream()
+                .mapToDouble(ci -> ci.getMenuItem().getPrice() * ci.getQuantity())
+                .sum();
+        double tax = subtotal * 0.1;
+        double total = subtotal + tax;
+
+        String orderId = "ANN" + String.format("%05d", (int)(Math.random() * 90000 + 10000));
+
+        Order order = Order.builder()
+                .orderId(orderId)
+                .user(user)
+                .subtotal(subtotal)
+                .tax(tax)
+                .total(total)
+                .discount(0.0)
+                .deliveryFee(0.0)
+                .status("Placed")
+                .paymentMethod(request.getPaymentMethod())
+                .deliveryAddress(request.getDeliveryAddress())
+                .build();
+
+        List<OrderItem> orderItems = new ArrayList<>();
+        for (CartItem ci : cartItems) {
+            OrderItem oi = OrderItem.builder()
+                    .order(order)
+                    .menuItem(ci.getMenuItem())
+                    .quantity(ci.getQuantity())
+                    .price(ci.getMenuItem().getPrice())
+                    .build();
+            orderItems.add(oi);
+        }
+        order.setItems(orderItems);
+
+        Order saved = orderRepository.save(order);
+        cartItemRepository.deleteByUser(user);
+
+        return toDTO(saved);
+    }
+
+    public List<OrderDTO> getOrderHistory(String mobile) {
+        User user = getUser(mobile);
+        return orderRepository.findByUserOrderByCreatedAtDesc(user)
+                .stream().map(this::toDTO).collect(Collectors.toList());
+    }
+
+    public OrderDTO getOrderById(String orderId) {
+        Order order = orderRepository.findByOrderId(orderId)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+        return toDTO(order);
+    }
+
+    private User getUser(String mobile) {
+        return userRepository.findByMobile(mobile)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    private OrderDTO toDTO(Order order) {
+        List<OrderItemDTO> itemDTOs = order.getItems().stream()
+                .map(oi -> new OrderItemDTO(
+                        oi.getId(),
+                        oi.getMenuItem().getId(),
+                        oi.getMenuItem().getName(),
+                        oi.getQuantity(),
+                        oi.getPrice(),
+                        oi.getPrice() * oi.getQuantity()
+                ))
+                .collect(Collectors.toList());
+
+        return new OrderDTO(
+                order.getId(),
+                order.getOrderId(),
+                order.getSubtotal(),
+                order.getTax(),
+                order.getTotal(),
+                order.getDiscount(),
+                order.getDeliveryFee(),
+                order.getStatus(),
+                order.getPaymentMethod(),
+                order.getDeliveryAddress(),
+                order.getCreatedAt(),
+                itemDTOs
+        );
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/service/OtpService.java">
+package com.annapurna.in.service;
+
+import com.annapurna.in.entity.OtpVerification;
+import com.annapurna.in.repository.OtpVerificationRepository;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.Random;
+
+@Service
+public class OtpService {
+
+    private final OtpVerificationRepository otpRepo;
+
+    @Value("${twilio.phone.number}")
+    private String fromNumber;
+
+    public OtpService(OtpVerificationRepository otpRepo) {
+        this.otpRepo = otpRepo;
+    }
+
+    public String generateOtp() {
+        return String.valueOf(100000 + new Random().nextInt(900000));
+    }
+
+    public void sendOtp(String mobile) {
+        String otp = generateOtp();
+
+        // Save OTP in DB
+        OtpVerification otpEntity = new OtpVerification();
+        otpEntity.setMobile(mobile);
+        otpEntity.setOtp(otp);
+        otpEntity.setExpiresAt(LocalDateTime.now().plusMinutes(5));
+        otpRepo.save(otpEntity);
+
+        // Send SMS via Twilio
+        Message.creator(
+                new PhoneNumber("+91" + mobile),
+                new PhoneNumber(fromNumber),
+                "Your OTP is: " + otp
+        ).create();
+    }
+
+    public boolean verifyOtp(String mobile, String otp) {
+        OtpVerification record = otpRepo.findTopByMobileOrderByExpiryTimeDesc(mobile);
+
+        if (record == null) return false;
+
+        return record.getOtp().equals(otp) &&
+               record.getExpiresAt().isAfter(LocalDateTime.now());
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/service/PaymentService.java">
+package com.annapurna.in.service;
+
+import com.annapurna.in.dto.*;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.UUID;
+
+@Service
+@RequiredArgsConstructor
+public class PaymentService {
+
+    public PaymentResponse processPayment(PaymentRequest request) {
+        // Simulate payment processing
+        // In production: integrate Razorpay, PayU, Stripe, etc.
+
+        boolean success = true;
+        String transactionId = "TXN" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+
+        if (success) {
+            return new PaymentResponse(true, transactionId,
+                    "Payment successful via " + request.getPaymentMethod(),
+                    request.getOrderId() != null ? request.getOrderId().toString() : null);
+        } else {
+            return new PaymentResponse(false, null, "Payment failed", null);
+        }
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/service/UserService.java">
+package com.annapurna.in.service;
+
+import com.annapurna.in.dto.*;
+import com.annapurna.in.entity.User;
+import com.annapurna.in.repository.*;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+@Service
+@RequiredArgsConstructor
+public class UserService {
+
+    private final UserRepository userRepository;
+    private final OrderRepository orderRepository;
+    private final WishlistItemRepository wishlistRepository;
+
+    public UserProfileDTO getProfile(String mobile) {
+        User user = getUser(mobile);
+        int orderCount = orderRepository.findByUserOrderByCreatedAtDesc(user).size();
+        int wishlistCount = wishlistRepository.findByUser(user).size();
+
+        return new UserProfileDTO(
+                user.getId(),
+                user.getName(),
+                user.getMobile(),
+                user.getEmail(),
+                user.getDob() != null ? user.getDob().toString() : null,
+                user.getGender(),
+                orderCount,
+                wishlistCount);
+    }
+
+    public UserProfileDTO updateProfile(String mobile, UpdateProfileRequest request) {
+        User user = getUser(mobile);
+
+        if (request.getName() != null && !request.getName().isEmpty()) {
+            user.setName(request.getName());
+        }
+        if (request.getEmail() != null) {
+            user.setEmail(request.getEmail());
+        }
+        if (request.getGender() != null) {
+            user.setGender(request.getGender());
+        }
+        if (request.getDob() != null && !request.getDob().isEmpty()) {
+            try {
+                user.setDob(LocalDate.parse(request.getDob())); // ISO
+            } catch (Exception e) {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                user.setDob(LocalDate.parse(request.getDob(), formatter));
+            }
+        }
+
+        userRepository.save(user);
+        return getProfile(mobile);
+    }
+
+    private User getUser(String mobile) {
+        return userRepository.findByMobile(mobile)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+}
+</file>
+
+<file path="src/main/java/com/annapurna/in/service/WishlistService.java">
+package com.annapurna.in.service;
+
+import com.annapurna.in.dto.WishlistItemDTO;
+import com.annapurna.in.entity.*;
+import com.annapurna.in.repository.*;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+@RequiredArgsConstructor
+public class WishlistService {
+
+    private final WishlistItemRepository wishlistRepository;
+    private final MenuItemRepository menuItemRepository;
+    private final UserRepository userRepository;
+
+    public List<WishlistItemDTO> getWishlist(String mobile) {
+        User user = getUser(mobile);
+        return wishlistRepository.findByUser(user)
+                .stream().map(this::toDTO).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public List<WishlistItemDTO> toggleWishlist(String mobile, Long menuItemId) {
+        User user = getUser(mobile);
+
+        boolean exists = wishlistRepository.existsByUserAndMenuItemId(user, menuItemId);
+
+        if (exists) {
+            // Flush to ensure the delete actually commits
+            wishlistRepository.deleteByUserAndMenuItemId(user, menuItemId);
+            wishlistRepository.flush();
+        } else {
+            MenuItem menuItem = menuItemRepository.findById(menuItemId)
+                    .orElseThrow(() -> new RuntimeException("Menu item not found"));
+            WishlistItem item = WishlistItem.builder()
+                    .user(user)
+                    .menuItem(menuItem)
+                    .build();
+            wishlistRepository.save(item);
+        }
+
+        return getWishlist(mobile);
+    }
+
+    public boolean isWishlisted(String mobile, Long menuItemId) {
+        User user = getUser(mobile);
+        return wishlistRepository.existsByUserAndMenuItemId(user, menuItemId);
+    }
+
+    private User getUser(String mobile) {
+        return userRepository.findByMobile(mobile)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    private WishlistItemDTO toDTO(WishlistItem item) {
+        return new WishlistItemDTO(
+                item.getId(),
+                item.getMenuItem().getId(),
+                item.getMenuItem().getName(),
+                item.getMenuItem().getPrice(),
+                item.getMenuItem().getCategory(),
+                item.getMenuItem().getImageUrl(),
+                item.getMenuItem().getDescription());
+    }
+}
+</file>
+
+<file path="src/main/resources/application.properties">
+spring.application.name=in
+
+# MySQL
+spring.datasource.url=jdbc:mysql://localhost:3306/annapurna_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+
+# Server
+server.port=8080
+server.address=0.0.0.0
+
+# JWT
+app.jwt.secret=AnnapurnaRestaurantSuperSecretKeyForJWT2024AnnapurnaRestaurant
+app.jwt.expiration=86400000
+
+# Logging
+logging.level.com.annapurna=DEBUG
+
+# Twilio Configuration
+twilio.account.sid=${TWILIO_SID}
+twilio.auth.token=${TWILIO_AUTH_TOKEN}
+twilio.phone.number=+15074282045
+</file>
+
+<file path="src/test/java/com/annapurna/in/InApplicationTests.java">
+package com.annapurna.in;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class InApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
+</file>
+
+</files>

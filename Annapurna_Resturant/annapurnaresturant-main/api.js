@@ -1,9 +1,24 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Platform } from "react-native";
 
-// ─── Change this to your machine's local IP when testing on a physical device ───
-// const BASE_URL = 'http://10.0.2.2:8080/api'; // Android emulator
-const BASE_URL = 'http://localhost:8080/api'; 
-// const BASE_URL = 'http://192.168.0.33:8080/api'; // Physical device (use your machine's IP)
+// ✅ UPDATE THIS IP to your laptop's local IP address (run `ipconfig` on Windows or `ifconfig` on Mac/Linux)
+const LAPTOP_IP = "192.168.0.22"; // <-- Change this to your actual laptop IP
+
+const getBaseUrl = () => {
+    if (Platform.OS === "web") {
+        return `http://${window.location.hostname}:8080/api`;
+    }
+    if (Platform.OS === "android") {
+        // Android Emulator uses 10.0.2.2, but real device needs laptop IP
+        return `http://${LAPTOP_IP}:8080/api`;
+    }
+    if (Platform.OS === "ios") {
+        return `http://${LAPTOP_IP}:8080/api`;
+    }
+    return `http://${LAPTOP_IP}:8080/api`;
+};
+
+export const BASE_URL = getBaseUrl();
 
 const getToken = async () => {
     return await AsyncStorage.getItem('token');
@@ -23,7 +38,7 @@ const handleResponse = async (res) => {
     return json.data;
 };
 
-// ─── AUTH ───────────────────────────────────────────────────────────────────────
+// ─── AUTH ────────────────────────────────────────────────────────────────────────
 export const login = async (mobile, password) => {
     const res = await fetch(`${BASE_URL}/auth/login`, {
         method: 'POST',
@@ -178,11 +193,11 @@ export const getProfile = async () => {
     return handleResponse(res);
 };
 
-export const updateProfile = async (profileData) => {
+export const updateProfile = async (data) => {
     const res = await fetch(`${BASE_URL}/user/profile`, {
-        method: 'PUT',
+        method: "PUT",
         headers: await authHeaders(),
-        body: JSON.stringify(profileData),
+        body: JSON.stringify(data),
     });
     return handleResponse(res);
 };
@@ -213,12 +228,16 @@ export const updateAddress = async (addressId, addressData) => {
     return handleResponse(res);
 };
 
-export const deleteAddress = async (addressId) => {
-    const res = await fetch(`${BASE_URL}/addresses/${addressId}`, {
-        method: 'DELETE',
-        headers: await authHeaders(),
+export const deleteAddress = async (id) => {
+    const headers = await authHeaders();
+    const response = await fetch(`${BASE_URL}/addresses/${id}`, {
+        method: "DELETE",
+        headers: headers,
     });
-    return handleResponse(res);
+    if (!response.ok) {
+        throw new Error("Delete failed");
+    }
+    return true;
 };
 
 export const setDefaultAddress = async (addressId) => {

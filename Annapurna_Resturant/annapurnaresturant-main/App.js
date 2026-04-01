@@ -26,11 +26,14 @@ import Transaction from "./Transaction";
 import OrderSuccess from "./OrderSuccess";
 import EditProfileScreen from "./EditProfileScreen";
 import SavedAddressesScreen from "./SavedAddressesScreen";
+
+import EditAddress from "./Editaddress"; 
 import OrderHistoryScreen from "./OrderHistoryScreen";
 import ContactUsScreen from "./ContactUsScreen";
 import HelpFAQScreen from "./HelpFAQScreen";
 import RateAppScreen from "./RateAppScreen";
 import PrivacyPolicyScreen from "./PrivacyPolicyScreen";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -74,6 +77,7 @@ export default function App() {
             <Stack.Screen name="OrderSuccess" component={OrderSuccess} />
             <Stack.Screen name="EditProfile" component={EditProfileScreen} />
             <Stack.Screen name="SavedAddresses" component={SavedAddressesScreen} />
+            <Stack.Screen name="EditAddress" component={EditAddress} />
             <Stack.Screen name="OrderHistory" component={OrderHistoryScreen} />
             <Stack.Screen name="HelpFAQ" component={HelpFAQScreen} />
             <Stack.Screen name="ContactUs" component={ContactUsScreen} />

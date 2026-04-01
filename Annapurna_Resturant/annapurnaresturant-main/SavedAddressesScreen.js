@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   View,
   Text,
@@ -6,92 +6,143 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-
-const INITIAL_ADDRESSES = [
-  {
-    id: "1",
-    tag: "Home",
-    tagIcon: "home",
-    name: "Annapurna User",
-    line1: "Flat 4B, Sunshine Apartments",
-    line2: "Road No. 5, Banjara Hills",
-    city: "Hyderabad",
-    state: "Telangana",
-    pincode: "500034",
-    phone: "+91 98765 43210",
-    isDefault: true,
-  },
-  {
-    id: "2",
-    tag: "Work",
-    tagIcon: "briefcase",
-    name: "Annapurna User",
-    line1: "3rd Floor, Cyber Towers, Block B",
-    line2: "HITEC City, Madhapur",
-    city: "Hyderabad",
-    state: "Telangana",
-    pincode: "500081",
-    phone: "+91 98765 43210",
-    isDefault: false,
-  },
-  {
-    id: "3",
-    tag: "Parents",
-    tagIcon: "people",
-    name: "Ravi Kumar",
-    line1: "H.No 12-4-56, Ashok Nagar",
-    line2: "Near Water Tank, Old City",
-    city: "Hyderabad",
-    state: "Telangana",
-    pincode: "500024",
-    phone: "+91 91234 56789",
-    isDefault: false,
-  },
-  {
-    id: "4",
-    tag: "Other",
-    tagIcon: "location",
-    name: "Suresh Reddy",
-    line1: "Plot 77, Sri Nagar Colony",
-    line2: "Ameerpet",
-    city: "Hyderabad",
-    state: "Telangana",
-    pincode: "500016",
-    phone: "+91 99887 66554",
-    isDefault: false,
-  },
-];
+import { useFocusEffect } from "@react-navigation/native";
+import {
+  getAddresses,
+  addAddress,
+  updateAddress,
+  deleteAddress,
+  setDefaultAddress,
+} from "./api";
 
 const TAG_COLORS = {
-  Home:    { bg: "#e8f5e9", icon: "#43a047" },
-  Work:    { bg: "#e3f2fd", icon: "#1e88e5" },
+  Home: { bg: "#e8f5e9", icon: "#43a047" },
+  Work: { bg: "#e3f2fd", icon: "#1e88e5" },
   Parents: { bg: "#fff3e0", icon: "#fb8c00" },
-  Other:   { bg: "#f3e5f5", icon: "#8e24aa" },
+  Other: { bg: "#f3e5f5", icon: "#8e24aa" },
+  House: { bg: "#e8f5e9", icon: "#43a047" },
+  Office: { bg: "#e3f2fd", icon: "#1e88e5" },
 };
 
-export default function SavedAddressesScreen({ navigation }) {
-  const [addresses, setAddresses] = useState(INITIAL_ADDRESSES);
+const TAG_ICONS = {
+  Home: "home",
+  Work: "briefcase",
+  Parents: "people",
+  House: "home",
+  Office: "briefcase",
+  Other: "location",
+};
 
-  const setDefault = (id) => {
-    setAddresses((prev) =>
-      prev.map((a) => ({ ...a, isDefault: a.id === id }))
-    );
+export default function SavedAddressesScreen({ navigation, route }) {
+  const [addresses, setAddresses] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Reload addresses every time this screen comes into focus
+  // (covers the case when EditAddress screen calls onSave and pops back)
+  useFocusEffect(
+    useCallback(() => {
+      fetchAddresses();
+    }, [])
+  );
+
+  const fetchAddresses = async () => {
+    try {
+      setLoading(true);
+      const data = await getAddresses();
+      setAddresses(data);
+    } catch (e) {
+      console.log("Fetch addresses error:", e);
+      Alert.alert("Error", "Could not load addresses. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const deleteAddress = (id) => {
-    Alert.alert("Delete Address", "Are you sure you want to remove this address?", [
-      { text: "Cancel", style: "cancel" },
-      {
-        text: "Delete",
-        style: "destructive",
-        onPress: () => setAddresses((prev) => prev.filter((a) => a.id !== id)),
+  // Called by EditAddress screen via route params callback
+  useEffect(() => {
+    if (route?.params?.savedAddress) {
+      handleSaveFromEditor(route.params.savedAddress);
+      // Clear params so it doesn't re-trigger
+      navigation.setParams({ savedAddress: undefined });
+    }
+  }, [route?.params?.savedAddress]);
+
+  const handleSaveFromEditor = async (formData) => {
+    try {
+      if (formData.id && formData.id !== null) {
+        await updateAddress(formData.id, formData);
+      } else {
+        await addAddress(formData);
+      }
+      fetchAddresses();
+    } catch (e) {
+      Alert.alert("Error", e.message || "Could not save address.");
+    }
+  };
+
+  const handleSetDefault = async (id) => {
+    try {
+      const updated = await setDefaultAddress(id);
+      setAddresses(updated);
+    } catch (e) {
+      Alert.alert("Error", e.message || "Could not set default address.");
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      console.log("Deleting ID:", id);
+
+      await deleteAddress(Number(id));   // 🔥 ensure number
+      await fetchAddresses();            // 🔥 refresh list
+
+      Alert.alert("Success", "Address deleted successfully");
+    } catch (e) {
+      console.log("Delete error:", e);
+      Alert.alert("Error", e.message || "Could not delete address.");
+    }
+  };
+
+  const openAddNew = () => {
+    navigation.navigate("EditAddress", {
+      address: null,
+      onSave: handleSaveFromEditor,
+    });
+  };
+
+  const openEdit = (addr) => {
+    navigation.navigate("EditAddress", {
+      address: {
+        id: addr.id,
+        tag: addr.tag || "Other",
+        tagIcon: addr.tagIcon || "📍",
+        name: addr.name || "",
+        phone: addr.phone || "",
+        line1: addr.line1 || "",
+        line2: addr.line2 || "",
+        city: addr.city || "",
+        state: addr.state || "",
+        pincode: addr.pincode || "",
+        isDefault: addr.isDefault || false,
       },
-    ]);
+      onSave: handleSaveFromEditor,
+    });
   };
 
   const colors = (tag) => TAG_COLORS[tag] || TAG_COLORS["Other"];
+  const iconName = (tag) => TAG_ICONS[tag] || "location";
+
+  if (loading) {
+    return (
+      <View style={[styles.container, { justifyContent: "center", alignItems: "center" }]}>
+        <ActivityIndicator size="large" color="#ff5722" />
+        <Text style={styles.loadingText}>Loading addresses...</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -104,62 +155,96 @@ export default function SavedAddressesScreen({ navigation }) {
         <View style={{ width: 36 }} />
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 110 }}>
-        {addresses.map((addr) => {
-          const c = colors(addr.tag);
-          return (
-            <View key={addr.id} style={[styles.card, addr.isDefault && styles.cardDefault]}>
-              {/* TAG ROW */}
-              <View style={styles.cardTop}>
-                <View style={[styles.tagChip, { backgroundColor: c.bg }]}>
-                  <Ionicons name={addr.tagIcon} size={13} color={c.icon} />
-                  <Text style={[styles.tagText, { color: c.icon }]}>{addr.tag}</Text>
-                </View>
-                {addr.isDefault && (
-                  <View style={styles.defaultBadge}>
-                    <Ionicons name="checkmark-circle" size={12} color="#ff5722" />
-                    <Text style={styles.defaultText}>Default</Text>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 110 }}
+      >
+        {addresses.length === 0 ? (
+          <View style={styles.emptyBox}>
+            <Ionicons name="location-outline" size={52} color="#ddd" />
+            <Text style={styles.emptyTitle}>No addresses saved</Text>
+            <Text style={styles.emptySubtitle}>Add a delivery address to get started</Text>
+          </View>
+        ) : (
+          addresses.map((addr) => {
+            const c = colors(addr.tag);
+            return (
+              <View
+                key={addr.id}
+                style={[styles.card, addr.isDefault && styles.cardDefault]}
+              >
+                {/* TAG ROW */}
+                <View style={styles.cardTop}>
+                  <View style={[styles.tagChip, { backgroundColor: c.bg }]}>
+                    <Ionicons name={iconName(addr.tag)} size={13} color={c.icon} />
+                    <Text style={[styles.tagText, { color: c.icon }]}>
+                      {addr.tag || "Other"}
+                    </Text>
                   </View>
-                )}
-              </View>
+                  {addr.isDefault && (
+                    <View style={styles.defaultBadge}>
+                      <Ionicons name="checkmark-circle" size={12} color="#ff5722" />
+                      <Text style={styles.defaultText}>Default</Text>
+                    </View>
+                  )}
+                </View>
 
-              {/* ADDRESS BODY */}
-              <Text style={styles.addrName}>{addr.name}</Text>
-              <Text style={styles.addrLine}>{addr.line1},</Text>
-              <Text style={styles.addrLine}>{addr.line2},</Text>
-              <Text style={styles.addrLine}>
-                {addr.city}, {addr.state} – {addr.pincode}
-              </Text>
-              <View style={styles.phoneRow}>
-                <Ionicons name="call-outline" size={13} color="#888" />
-                <Text style={styles.phoneText}>{addr.phone}</Text>
-              </View>
+                {/* ADDRESS BODY */}
+                <Text style={styles.addrName}>{addr.name || ""}</Text>
+                {addr.line1 ? (
+                  <Text style={styles.addrLine}>{`${addr.line1},`}</Text>
+                ) : null}
+                {addr.line2 ? (
+                  <Text style={styles.addrLine}>{`${addr.line2},`}</Text>
+                ) : null}
+                <Text style={styles.addrLine}>
+                  {`${addr.city || ""}, ${addr.state || ""} – ${addr.pincode || ""}`}
+                </Text>
+                {addr.phone ? (
+                  <View style={styles.phoneRow}>
+                    <Ionicons name="call-outline" size={13} color="#888" />
+                    <Text style={styles.phoneText}>{addr.phone || ""}</Text>
+                  </View>
+                ) : null}
 
-              {/* ACTIONS */}
-              <View style={styles.actionRow}>
-                {!addr.isDefault && (
-                  <TouchableOpacity style={styles.actionBtn} onPress={() => setDefault(addr.id)}>
-                    <Ionicons name="radio-button-on-outline" size={15} color="#ff5722" />
-                    <Text style={styles.actionText}>Set Default</Text>
+                {/* ACTIONS */}
+                <View style={styles.actionRow}>
+                  {!addr.isDefault && (
+                    <TouchableOpacity
+                      style={styles.actionBtn}
+                      onPress={() => handleSetDefault(addr.id)}
+                    >
+                      <Ionicons name="radio-button-on-outline" size={15} color="#ff5722" />
+                      <Text style={styles.actionText}>Set Default</Text>
+                    </TouchableOpacity>
+                  )}
+                  <TouchableOpacity
+                    style={styles.actionBtn}
+                    onPress={() => openEdit(addr)}
+                  >
+                    <Ionicons name="create-outline" size={15} color="#1a1a2e" />
+                    <Text style={[styles.actionText, { color: "#1a1a2e" }]}>Edit</Text>
                   </TouchableOpacity>
-                )}
-                <TouchableOpacity style={styles.actionBtn}>
-                  <Ionicons name="create-outline" size={15} color="#1a1a2e" />
-                  <Text style={[styles.actionText, { color: "#1a1a2e" }]}>Edit</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.actionBtn} onPress={() => deleteAddress(addr.id)}>
-                  <Ionicons name="trash-outline" size={15} color="#e53935" />
-                  <Text style={[styles.actionText, { color: "#e53935" }]}>Delete</Text>
-                </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.actionBtn}
+                    onPress={() => {
+                      console.log("Delete clicked:", addr.id);
+                      handleDelete(addr.id);
+                    }}
+                  >
+                    <Ionicons name="trash-outline" size={15} color="#e53935" />
+                    <Text style={[styles.actionText, { color: "#e53935" }]}>Delete</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-            </View>
-          );
-        })}
+            );
+          })
+        )}
       </ScrollView>
 
       {/* ADD NEW ADDRESS BUTTON */}
       <View style={styles.addBtnWrapper}>
-        <TouchableOpacity style={styles.addBtn}>
+        <TouchableOpacity style={styles.addBtn} onPress={openAddNew}>
           <Ionicons name="add-circle-outline" size={20} color="#fff" />
           <Text style={styles.addBtnText}>Add New Address</Text>
         </TouchableOpacity>
@@ -170,6 +255,13 @@ export default function SavedAddressesScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#faf9f7" },
+
+  loadingText: {
+    fontFamily: "PoppinsRegular",
+    color: "#888",
+    marginTop: 12,
+    fontSize: 13,
+  },
 
   header: {
     flexDirection: "row",
@@ -188,6 +280,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   headerTitle: { fontSize: 20, fontFamily: "PoppinsSemiBold", color: "#1a1a2e" },
+
+  emptyBox: {
+    alignItems: "center",
+    marginTop: 80,
+    paddingHorizontal: 40,
+  },
+  emptyTitle: {
+    fontFamily: "PoppinsSemiBold",
+    fontSize: 16,
+    color: "#aaa",
+    marginTop: 16,
+  },
+  emptySubtitle: {
+    fontFamily: "PoppinsRegular",
+    fontSize: 13,
+    color: "#bbb",
+    marginTop: 8,
+    textAlign: "center",
+  },
 
   card: {
     backgroundColor: "#fff",
@@ -230,8 +341,18 @@ const styles = StyleSheet.create({
   },
   defaultText: { fontFamily: "PoppinsMedium", fontSize: 11, color: "#ff5722" },
 
-  addrName: { fontFamily: "PoppinsSemiBold", fontSize: 14, color: "#1a1a2e", marginBottom: 3 },
-  addrLine: { fontFamily: "PoppinsRegular", fontSize: 13, color: "#555", lineHeight: 20 },
+  addrName: {
+    fontFamily: "PoppinsSemiBold",
+    fontSize: 14,
+    color: "#1a1a2e",
+    marginBottom: 3,
+  },
+  addrLine: {
+    fontFamily: "PoppinsRegular",
+    fontSize: 13,
+    color: "#555",
+    lineHeight: 20,
+  },
   phoneRow: { flexDirection: "row", alignItems: "center", gap: 5, marginTop: 6 },
   phoneText: { fontFamily: "PoppinsRegular", fontSize: 12, color: "#888" },
 

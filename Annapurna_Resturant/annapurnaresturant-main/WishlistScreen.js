@@ -10,9 +10,14 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { WishlistContext } from "./WishlistContext";
 import { CartContext } from "./CartContext";
+import { allFoodItems } from "./Data";
+
 
 export default function WishlistScreen({ navigation }) {
   const { wishlist, toggleWishlist } = useContext(WishlistContext);
+  const wishlistItems = allFoodItems.filter(item =>
+    wishlist.includes(item.id)
+  );
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
 
   const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
@@ -35,7 +40,7 @@ export default function WishlistScreen({ navigation }) {
           <View style={styles.iconRow}>
             <TouchableOpacity
               style={styles.iconBtn}
-              onPress={() => toggleWishlist(item)}
+              onPress={() => toggleWishlist(item.id)}
             >
               <Ionicons name="heart" size={18} color="#ff5722" />
             </TouchableOpacity>
@@ -109,7 +114,7 @@ export default function WishlistScreen({ navigation }) {
         </View>
       ) : (
         <FlatList
-          data={wishlist}
+          data={wishlistItems}
           // WITH:
           keyExtractor={(item, index) => (item.menuItemId ?? item.id ?? index).toString()}
           renderItem={renderItem}

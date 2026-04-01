@@ -6,18 +6,24 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
-  Alert,
+  Alert
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
 // Add at the top of EditProfileScreen.js
 import { updateProfile } from "./api";
+import { Platform } from "react-native";
+
+
 
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,6}$/.test(email.trim());
 }
 
+function isValidPhone(phone) {
+  return /^[6-9]\d{9}$/.test(phone);
+}
 function Field({
   label, icon, value, onChangeText, onBlur,
   placeholder, keyboardType = "default", error,
@@ -63,19 +69,36 @@ export default function EditProfileScreen({ navigation, route }) {
   const existing = route?.params?.profile || {};
 
   const [name, setName] = useState(existing.name || "Annapurna User");
-  const [phone, setPhone] = useState(existing.phone || "+91 98765 43210");
+  const formatPhone = (phone) => {
+    if (!phone) return "";
+
+    // Remove +91 if exists
+    return phone.replace(/^(\+91)/, "").replace(/\D/g, "").slice(0, 10);
+  };
+
+  const [phone, setPhone] = useState(formatPhone(existing.phone));
+
   const [email, setEmail] = useState(existing.email || "");
   const [gender, setGender] = useState(existing.gender || "");
 
-  const [dob, setDob] = useState(existing.dob || "");
+
+  const [dob, setDob] = useState("");
   const [showPicker, setShowPicker] = useState(false);
   const [dobErr, setDobErr] = useState("");
 
   const [emailTouched, setEmailTouched] = useState(false);
+  const [phoneTouched, setPhoneTouched] = useState(false);
 
   const emailErr = emailTouched && email.trim().length > 0 && !isValidEmail(email)
     ? "Enter a valid email (e.g. you@example.com)"
     : "";
+
+  const cleanedPhone = phone.replace(/\s+/g, "");
+
+  const phoneErr =
+    phoneTouched && phone && !isValidPhone(cleanedPhone)
+      ? "Enter valid 10-digit mobile number"
+      : "";
 
   const handleDateChange = (event, selectedDate) => {
     setShowPicker(false);
@@ -97,11 +120,23 @@ export default function EditProfileScreen({ navigation, route }) {
   // Replace the handleSave function:
   const handleSave = async () => {
     setEmailTouched(true);
-    if (!name.trim()) { Alert.alert("Validation", "Name cannot be empty."); return; }
-    if (email.trim().length > 0 && !isValidEmail(email)) {
-      Alert.alert("Invalid Email", "Please enter a valid email address."); return;
+
+    if (!name.trim()) {
+      Alert.alert("Validation", "Name cannot be empty.");
+      return;
     }
-    if (!dob) { Alert.alert("Invalid Date", "Please select your date of birth"); return; }
+    if (phone && !isValidPhone(cleanedPhone)) {
+      Alert.alert("Invalid Phone", "Enter valid mobile number");
+      return;
+    }
+    if (email.trim().length > 0 && !isValidEmail(email)) {
+      Alert.alert("Invalid Email", "Please enter a valid email address.");
+      return;
+    }
+    if (!dob) {
+      Alert.alert("Invalid Date", "Please select your date of birth");
+      return;
+    }
 
     try {
       await updateProfile({
@@ -112,31 +147,19 @@ export default function EditProfileScreen({ navigation, route }) {
         phone: phone.trim(),
       });
     } catch (e) {
-      // Still navigate even if backend fails (offline mode)
       console.log("Profile update error:", e);
     }
 
     navigation.navigate("Profile", {
-      updatedProfile: { name: name.trim(), phone: phone.trim(), email: email.trim(), dob, gender },
+      updatedProfile: {
+        name: name.trim(),
+        phone: phone.trim(),
+        email: email.trim(),
+        dob,
+        gender,
+      },
     });
   };
-
-  if (!dob) {
-    Alert.alert("Invalid Date", "Please select your date of birth");
-    return;
-  }
-
-  navigation.navigate("Profile", {
-    updatedProfile: {
-      name: name.trim(),
-      phone: phone.trim(),
-      email: email.trim(),
-      dob: dob,
-      gender,
-    },
-  });
-
-
   return (
     <View style={styles.container}>
       {/* HEADER */}
@@ -181,8 +204,20 @@ export default function EditProfileScreen({ navigation, route }) {
             label="Phone Number"
             icon="call-outline"
             value={phone}
-            onChangeText={setPhone}
-            placeholder="+91 XXXXX XXXXX"
+            onChangeText={(text) => {
+              // Remove non-numeric characters
+              let cleaned = text.replace(/[^0-9]/g, "");
+
+              // Limit to 10 digits
+              if (cleaned.length > 10) {
+                cleaned = cleaned.slice(0, 10);
+              }
+
+              setPhone(cleaned);
+            }}
+
+            onBlur={() => setPhoneTouched(true)}
+            placeholder="XXXXX XXXXX"
             keyboardType="phone-pad"
           />
           <View style={styles.divider} />
@@ -202,25 +237,36 @@ export default function EditProfileScreen({ navigation, route }) {
           <View style={styles.fieldWrapper}>
             <Text style={styles.fieldLabel}>Date of Birth</Text>
 
-            <TouchableOpacity
-              style={[styles.inputRow, dobErr && styles.inputRowError]}
-              onPress={() => setShowPicker(true)}
-            >
-              <Ionicons
-                name="calendar-outline"
-                size={17}
-                color={dobErr ? "#e53935" : "#ff5722"}
-                style={{ marginRight: 10 }}
+            {Platform.OS === "web" ? (
+              // ✅ Laptop / Browser
+              <input
+                type="date"
+                value={dob}
+                onChange={(e) => setDob(e.target.value)}
+                style={{ padding: 10, borderRadius: 8 }}
               />
+            ) : (
+              // ✅ Mobile
+              <>
+                <TouchableOpacity onPress={() => setShowPicker(true)}>
+                  <Text>{dob ? dob : "Select DOB"}</Text>
+                </TouchableOpacity>
 
-              <Text style={{ flex: 1, color: dob ? "#1a1a2e" : "#bbb" }}>
-                {dob || "Select Date of Birth"}
-              </Text>
-
-              {dob ? (
-                <Ionicons name="checkmark-circle" size={16} color="#43a047" />
-              ) : null}
-            </TouchableOpacity>
+                {showPicker && (
+                  <DateTimePicker
+                    value={dob ? new Date(dob) : new Date()}
+                    mode="date"
+                    display="default"
+                    onChange={(event, selectedDate) => {
+                      setShowPicker(false);
+                      if (selectedDate) {
+                        setDob(selectedDate.toISOString().split("T")[0]);
+                      }
+                    }}
+                  />
+                )}
+              </>
+            )}
 
             <Text style={styles.hintText}>Tap to select your DOB</Text>
 
@@ -235,9 +281,14 @@ export default function EditProfileScreen({ navigation, route }) {
                     : new Date(2000, 0, 1)
                 }
                 mode="date"
-                display="spinner"
+                display={Platform.OS === "ios" ? "spinner" : "default"}
                 maximumDate={new Date()}
-                onChange={handleDateChange}
+                onChange={(event, selectedDate) => {
+                  if (Platform.OS === "android") {
+                    setShowPicker(false); // important for Android
+                  }
+                  handleDateChange(event, selectedDate);
+                }}
               />
             )}
           </View>

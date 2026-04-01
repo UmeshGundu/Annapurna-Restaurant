@@ -30,8 +30,7 @@ public class UserService {
                 user.getDob() != null ? user.getDob().toString() : null,
                 user.getGender(),
                 orderCount,
-                wishlistCount
-        );
+                wishlistCount);
     }
 
     public UserProfileDTO updateProfile(String mobile, UpdateProfileRequest request) {
@@ -48,9 +47,11 @@ public class UserService {
         }
         if (request.getDob() != null && !request.getDob().isEmpty()) {
             try {
+                user.setDob(LocalDate.parse(request.getDob())); // ISO
+            } catch (Exception e) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 user.setDob(LocalDate.parse(request.getDob(), formatter));
-            } catch (Exception ignored) {}
+            }
         }
 
         userRepository.save(user);
